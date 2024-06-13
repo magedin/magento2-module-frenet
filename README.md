@@ -22,8 +22,8 @@ Esta versão do módulo é compatível com as seguintes versões do Magento 2:
 Abra o terminal e navegue até o diretório raíz da sua instalação do Magento 2 e execute os seguintes comandos:
 
 ```
-> composer require frenet/frenet-magento2        // Faz a requisição do módulo da Frenet
-> php bin/magento module:enable Frenet_Shipping  // Ativa o módulo no Magento
+> composer require magedin/module-frenet         // Faz a requisição do módulo da Frenet
+> php bin/magento module:enable MagedIn_Frenet   // Ativa o módulo no Magento
 > php bin/magento setup:upgrade                  // Registra a extensão
 > php bin/magento setup:di:compile               // Recompila o projeto Magento
 ```
