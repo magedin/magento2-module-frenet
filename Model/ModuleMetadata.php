@@ -29,7 +29,7 @@ class ModuleMetadata
     /**
      * @var string
      */
-    const PACKAGE_NAME = 'frenet/frenet-magento2';
+    const PACKAGE_NAME = 'magedin/module-frenet';
 
     /**
      * @var string
@@ -190,7 +190,7 @@ class ModuleMetadata
     private function getLocalComposerInfo()
     {
         $mageAppDir = $this->directoryList->getPath(DirectoryList::APP);
-        $moduleDir = implode(DIRECTORY_SEPARATOR, [$mageAppDir, 'code', 'Frenet', 'Shipping']);
+        $moduleDir = implode(DIRECTORY_SEPARATOR, [$mageAppDir, 'code', 'MagedIn', 'Frenet']);
 
         $finder = new Finder();
         $finder->files()->name('composer.json')->depth(0)->in($moduleDir);

@@ -14,7 +14,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <carriers>
-            <frenetshipping>
+            <magedin_frenet>
                 <model>MagedIn\Frenet\Model\Carrier\Frenet</model>
                 <name>frenet</name>
                 <version>2.1.4</version>
@@ -70,7 +70,7 @@
 
                 <!-- OTHER OPTIONS -->
                 <sort_order>90</sort_order>
-            </frenetshipping>
+            </magedin_frenet>
         </carriers>
     </default>
 </config>
