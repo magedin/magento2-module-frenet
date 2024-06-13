@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace Frenet\Shipping\Model\Validator;
+namespace MagedIn\Frenet\Model\Validator;
 
 /**
  * Class PostcodeValidator
@@ -21,12 +21,12 @@ namespace Frenet\Shipping\Model\Validator;
 class PostcodeValidator
 {
     /**
-     * @var \Frenet\Shipping\Model\Formatters\PostcodeNormalizer
+     * @var \MagedIn\Frenet\Model\Formatters\PostcodeNormalizer
      */
     private $postcodeNormalizer;
 
     public function __construct(
-        \Frenet\Shipping\Model\Formatters\PostcodeNormalizer $postcodeNormalizer
+        \MagedIn\Frenet\Model\Formatters\PostcodeNormalizer $postcodeNormalizer
     ) {
         $this->postcodeNormalizer = $postcodeNormalizer;
     }

@@ -3,7 +3,7 @@
  * Frenet Shipping Gateway
  *
  * @category Frenet
- * @package  Frenet\Shipping
+ * @package  MagedIn\Frenet
  *
  * @author   Tiago Sampaio <tiago@tiagosampaio.com>
  * @link     https://github.com/tiagosampaio
@@ -12,9 +12,9 @@
  * Copyright (c) 2020.
  */
 
-namespace Frenet\Shipping\Api;
+namespace MagedIn\Frenet\Api;
 
-use Frenet\Shipping\Api\Data\ProductQuoteOptionsInterface;
+use MagedIn\Frenet\Api\Data\ProductQuoteOptionsInterface;
 
 interface QuoteProductInterface
 {

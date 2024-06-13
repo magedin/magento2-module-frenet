@@ -13,12 +13,12 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Cache\CacheKeyGenerator;
+namespace MagedIn\Frenet\Model\Cache\CacheKeyGenerator;
 
-use Frenet\Shipping\Model\Config;
-use Frenet\Shipping\Model\Cache\CacheKeyGeneratorInterface;
-use Frenet\Shipping\Model\Formatters\PostcodeNormalizer;
-use Frenet\Shipping\Service\RateRequestProvider;
+use MagedIn\Frenet\Model\Config;
+use MagedIn\Frenet\Model\Cache\CacheKeyGeneratorInterface;
+use MagedIn\Frenet\Model\Formatters\PostcodeNormalizer;
+use MagedIn\Frenet\Service\RateRequestProvider;
 use Magento\Framework\Serialize\SerializerInterface;
 
 class PostcodeGenerator implements CacheKeyGeneratorInterface

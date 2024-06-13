@@ -13,9 +13,9 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Setup\Patch\Data;
+namespace MagedIn\Frenet\Setup\Patch\Data;
 
-use Frenet\Shipping\Model\Catalog\ProductType;
+use MagedIn\Frenet\Model\Catalog\ProductType;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Console\Cli;
 

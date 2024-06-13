@@ -13,10 +13,10 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Cache\CacheKeyGenerator;
+namespace MagedIn\Frenet\Model\Cache\CacheKeyGenerator;
 
-use Frenet\Shipping\Model\Cache\CacheKeyGeneratorInterface;
-use Frenet\Shipping\Model\Config;
+use MagedIn\Frenet\Model\Cache\CacheKeyGeneratorInterface;
+use MagedIn\Frenet\Model\Config;
 
 class MultiQuoteGenerator implements CacheKeyGeneratorInterface
 {

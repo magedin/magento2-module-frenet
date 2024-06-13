@@ -12,7 +12,7 @@
  */
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Quote;
+namespace MagedIn\Frenet\Model\Quote;
 
 use Magento\Catalog\Model\Product;
 use Magento\Quote\Model\Quote\Item\AbstractItem;

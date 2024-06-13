@@ -13,7 +13,7 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Carrier;
+namespace MagedIn\Frenet\Model\Carrier;
 
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Quote\Model\Quote\Address\RateResult\Method as MethodInstance;
@@ -65,42 +65,42 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
     private $result;
 
     /**
-     * @var \Frenet\Shipping\Model\CalculatorInterface
+     * @var \MagedIn\Frenet\Model\CalculatorInterface
      */
     private $calculator;
 
     /**
-     * @var \Frenet\Shipping\Model\DeliveryTimeCalculator
+     * @var \MagedIn\Frenet\Model\DeliveryTimeCalculator
      */
     private $deliveryTimeCalculator;
 
     /**
-     * @var \Frenet\Shipping\Model\TrackingInterface
+     * @var \MagedIn\Frenet\Model\TrackingInterface
      */
     private $trackingService;
 
     /**
-     * @var \Frenet\Shipping\Model\ServiceFinderInterface
+     * @var \MagedIn\Frenet\Model\ServiceFinderInterface
      */
     private $serviceFinder;
 
     /**
-     * @var \Frenet\Shipping\Model\Formatters\PostcodeNormalizer
+     * @var \MagedIn\Frenet\Model\Formatters\PostcodeNormalizer
      */
     private $postcodeNormalizer;
 
     /**
-     * @var \Frenet\Shipping\Model\Config
+     * @var \MagedIn\Frenet\Model\Config
      */
     private $config;
 
     /**
-     * @var \Frenet\Shipping\Model\Validator\PostcodeValidator
+     * @var \MagedIn\Frenet\Model\Validator\PostcodeValidator
      */
     private $postcodeValidator;
 
     /**
-     * @var \Frenet\Shipping\Service\RateRequestProvider
+     * @var \MagedIn\Frenet\Service\RateRequestProvider
      */
     private $rateRequestProvider;
 
@@ -126,14 +126,14 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
         \Magento\CatalogInventory\Api\StockRegistryInterface $stockRegistry,
         \Magento\Store\Model\StoreManagerInterface $storeManagement,
         \Magento\Catalog\Model\ResourceModel\ProductFactory $productResourceFactory,
-        \Frenet\Shipping\Model\CalculatorInterface $calculator,
-        \Frenet\Shipping\Model\TrackingInterface $trackingService,
-        \Frenet\Shipping\Model\ServiceFinderInterface $serviceFinder,
-        \Frenet\Shipping\Model\Config $config,
-        \Frenet\Shipping\Model\DeliveryTimeCalculator $deliveryTimeCalculator,
-        \Frenet\Shipping\Model\Formatters\PostcodeNormalizer $postcodeNormalizer,
-        \Frenet\Shipping\Model\Validator\PostcodeValidator $postcodeValidator,
-        \Frenet\Shipping\Service\RateRequestProvider $rateRequestProvider,
+        \MagedIn\Frenet\Model\CalculatorInterface $calculator,
+        \MagedIn\Frenet\Model\TrackingInterface $trackingService,
+        \MagedIn\Frenet\Model\ServiceFinderInterface $serviceFinder,
+        \MagedIn\Frenet\Model\Config $config,
+        \MagedIn\Frenet\Model\DeliveryTimeCalculator $deliveryTimeCalculator,
+        \MagedIn\Frenet\Model\Formatters\PostcodeNormalizer $postcodeNormalizer,
+        \MagedIn\Frenet\Model\Validator\PostcodeValidator $postcodeValidator,
+        \MagedIn\Frenet\Service\RateRequestProvider $rateRequestProvider,
         array $data = []
     ) {
         parent::__construct(
@@ -178,7 +178,7 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
     public function collectRates(RateRequest $request)
     {
         try {
-            
+
             if (!$this->canCollectRates()) {
                 $errorMessage = $this->getErrorMessage();
                 $this->_logger->debug("Frenet canCollectRates: " . $errorMessage);

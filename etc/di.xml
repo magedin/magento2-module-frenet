@@ -23,64 +23,64 @@
     <preference for="MagedIn\Frenet\Model\Quote\MultiQuoteValidatorInterface" type="MagedIn\Frenet\Model\Quote\MultiQuoteValidator"/>
     <preference for="MagedIn\Frenet\Model\Quote\ItemQuantityCalculatorInterface" type="MagedIn\Frenet\Model\Quote\ItemQuantityCalculator"/>
     <preference for="MagedIn\Frenet\Model\Quote\QuoteItemValidatorInterface" type="MagedIn\Frenet\Model\Quote\ItemValidator"/>
-    <preference for="MagedIn\Frenet\Model\Catalog\Product\DimensionsExtractorInterface" type="Frenet\Shipping\Model\Catalog\Product\DimensionsExtractor"/>
-    <preference for="Frenet\Shipping\Model\Catalog\Product\AttributesMappingInterface" type="Frenet\Shipping\Model\Catalog\Product\AttributesMapping"/>
-    <preference for="Frenet\Shipping\Model\Cache\CacheKeyGeneratorInterface" type="Frenet\Shipping\Model\Cache\CacheKeyGenerator"/>
+    <preference for="MagedIn\Frenet\Model\Catalog\Product\DimensionsExtractorInterface" type="MagedIn\Frenet\Model\Catalog\Product\DimensionsExtractor"/>
+    <preference for="MagedIn\Frenet\Model\Catalog\Product\AttributesMappingInterface" type="MagedIn\Frenet\Model\Catalog\Product\AttributesMapping"/>
+    <preference for="MagedIn\Frenet\Model\Cache\CacheKeyGeneratorInterface" type="MagedIn\Frenet\Model\Cache\CacheKeyGenerator"/>
 
     <!-- API Classes -->
-    <preference for="Frenet\Shipping\Api\QuoteProductInterface" type="Frenet\Shipping\Model\Catalog\Product\View\Quote"/>
-    <preference for="Frenet\Shipping\Api\Data\ProductQuoteOptionsInterface" type="Frenet\Shipping\Model\Catalog\Product\View\ProductQuoteOptions"/>
+    <preference for="MagedIn\Frenet\Api\QuoteProductInterface" type="MagedIn\Frenet\Model\Catalog\Product\View\Quote"/>
+    <preference for="MagedIn\Frenet\Api\Data\ProductQuoteOptionsInterface" type="MagedIn\Frenet\Model\Catalog\Product\View\ProductQuoteOptions"/>
 
-    <type name="Frenet\Shipping\Model\Calculator">
+    <type name="MagedIn\Frenet\Model\Calculator">
         <arguments>
-            <argument name="dimensionsExtractor" xsi:type="object">Frenet\Shipping\Model\Catalog\Product\DimensionsExtractor</argument>
+            <argument name="dimensionsExtractor" xsi:type="object">MagedIn\Frenet\Model\Catalog\Product\DimensionsExtractor</argument>
         </arguments>
     </type>
 
-    <virtualType name="Frenet\Shipping\Model\Quote\Calculators\SimplePriceCalculator" type="Frenet\Shipping\Model\Quote\Calculators\DefaultPriceCalculator">
+    <virtualType name="MagedIn\Frenet\Model\Quote\Calculators\SimplePriceCalculator" type="MagedIn\Frenet\Model\Quote\Calculators\DefaultPriceCalculator">
     </virtualType>
 
-    <virtualType name="Frenet\Shipping\Model\Quote\Calculators\VirtualPriceCalculator" type="Frenet\Shipping\Model\Quote\Calculators\DefaultPriceCalculator">
+    <virtualType name="MagedIn\Frenet\Model\Quote\Calculators\VirtualPriceCalculator" type="MagedIn\Frenet\Model\Quote\Calculators\DefaultPriceCalculator">
     </virtualType>
 
-    <virtualType name="Frenet\Shipping\Model\Quote\Calculators\DownloadablePriceCalculator" type="Frenet\Shipping\Model\Quote\Calculators\DefaultPriceCalculator">
+    <virtualType name="MagedIn\Frenet\Model\Quote\Calculators\DownloadablePriceCalculator" type="MagedIn\Frenet\Model\Quote\Calculators\DefaultPriceCalculator">
     </virtualType>
 
-    <virtualType name="Frenet\Shipping\Model\Quote\Calculators\GroupedPriceCalculator" type="Frenet\Shipping\Model\Quote\Calculators\DefaultPriceCalculator">
+    <virtualType name="MagedIn\Frenet\Model\Quote\Calculators\GroupedPriceCalculator" type="MagedIn\Frenet\Model\Quote\Calculators\DefaultPriceCalculator">
     </virtualType>
 
-    <type name="Frenet\Shipping\Model\Quote\Calculators\PriceCalculatorFactory">
+    <type name="MagedIn\Frenet\Model\Quote\Calculators\PriceCalculatorFactory">
         <arguments>
             <argument name="calculators" xsi:type="array">
-                <item name="default" xsi:type="object">Frenet\Shipping\Model\Quote\Calculators\DefaultPriceCalculator</item>
-                <item name="simple" xsi:type="object">Frenet\Shipping\Model\Quote\Calculators\SimplePriceCalculator</item>
-                <item name="virtual" xsi:type="object">Frenet\Shipping\Model\Quote\Calculators\VirtualPriceCalculator</item>
-                <item name="downloadable" xsi:type="object">Frenet\Shipping\Model\Quote\Calculators\DownloadablePriceCalculator</item>
-                <item name="grouped" xsi:type="object">Frenet\Shipping\Model\Quote\Calculators\GroupedPriceCalculator</item>
-                <item name="configurable" xsi:type="object">Frenet\Shipping\Model\Quote\Calculators\ConfigurablePriceCalculator</item>
-                <item name="bundle" xsi:type="object">Frenet\Shipping\Model\Quote\Calculators\BundlePriceCalculator</item>
+                <item name="default" xsi:type="object">MagedIn\Frenet\Model\Quote\Calculators\DefaultPriceCalculator</item>
+                <item name="simple" xsi:type="object">MagedIn\Frenet\Model\Quote\Calculators\SimplePriceCalculator</item>
+                <item name="virtual" xsi:type="object">MagedIn\Frenet\Model\Quote\Calculators\VirtualPriceCalculator</item>
+                <item name="downloadable" xsi:type="object">MagedIn\Frenet\Model\Quote\Calculators\DownloadablePriceCalculator</item>
+                <item name="grouped" xsi:type="object">MagedIn\Frenet\Model\Quote\Calculators\GroupedPriceCalculator</item>
+                <item name="configurable" xsi:type="object">MagedIn\Frenet\Model\Quote\Calculators\ConfigurablePriceCalculator</item>
+                <item name="bundle" xsi:type="object">MagedIn\Frenet\Model\Quote\Calculators\BundlePriceCalculator</item>
             </argument>
         </arguments>
     </type>
 
-    <type name="Frenet\Shipping\Model\Catalog\Product\View\RateRequestBuilder">
+    <type name="MagedIn\Frenet\Model\Catalog\Product\View\RateRequestBuilder">
         <arguments>
             <argument name="builders" xsi:type="array">
-                <item name="default" xsi:type="object">Frenet\Shipping\Model\Catalog\Product\View\RateRequestBuilder\DefaultBuilder</item>
-                <item name="grouped" xsi:type="object">Frenet\Shipping\Model\Catalog\Product\View\RateRequestBuilder\GroupedBuilder</item>
-                <item name="configurable" xsi:type="object">Frenet\Shipping\Model\Catalog\Product\View\RateRequestBuilder\ConfigurableBuilder</item>
-                <item name="bundle" xsi:type="object">Frenet\Shipping\Model\Catalog\Product\View\RateRequestBuilder\BundleBuilder</item>
+                <item name="default" xsi:type="object">MagedIn\Frenet\Model\Catalog\Product\View\RateRequestBuilder\DefaultBuilder</item>
+                <item name="grouped" xsi:type="object">MagedIn\Frenet\Model\Catalog\Product\View\RateRequestBuilder\GroupedBuilder</item>
+                <item name="configurable" xsi:type="object">MagedIn\Frenet\Model\Catalog\Product\View\RateRequestBuilder\ConfigurableBuilder</item>
+                <item name="bundle" xsi:type="object">MagedIn\Frenet\Model\Catalog\Product\View\RateRequestBuilder\BundleBuilder</item>
             </argument>
         </arguments>
     </type>
 
-    <type name="Frenet\Shipping\Model\Cache\CacheKeyGeneratorInterface">
+    <type name="MagedIn\Frenet\Model\Cache\CacheKeyGeneratorInterface">
         <arguments>
             <argument name="generators" xsi:type="array">
-                <item name="postcode" xsi:type="object">Frenet\Shipping\Model\Cache\CacheKeyGenerator\PostcodeGenerator</item>
-                <item name="quote_item" xsi:type="object">Frenet\Shipping\Model\Cache\CacheKeyGenerator\QuoteItemGenerator</item>
-                <item name="discount_coupon" xsi:type="object">Frenet\Shipping\Model\Cache\CacheKeyGenerator\CouponGenerator</item>
-                <item name="multi_quote" xsi:type="object">Frenet\Shipping\Model\Cache\CacheKeyGenerator\MultiQuoteGenerator</item>
+                <item name="postcode" xsi:type="object">MagedIn\Frenet\Model\Cache\CacheKeyGenerator\PostcodeGenerator</item>
+                <item name="quote_item" xsi:type="object">MagedIn\Frenet\Model\Cache\CacheKeyGenerator\QuoteItemGenerator</item>
+                <item name="discount_coupon" xsi:type="object">MagedIn\Frenet\Model\Cache\CacheKeyGenerator\CouponGenerator</item>
+                <item name="multi_quote" xsi:type="object">MagedIn\Frenet\Model\Cache\CacheKeyGenerator\MultiQuoteGenerator</item>
             </argument>
         </arguments>
     </type>

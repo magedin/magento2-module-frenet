@@ -3,7 +3,7 @@
  * Frenet Shipping Gateway
  *
  * @category Frenet
- * @package  Frenet\Shipping
+ * @package  MagedIn\Frenet
  *
  * @author   Tiago Sampaio <tiago@tiagosampaio.com>
  * @link     https://github.com/tiagosampaio
@@ -12,7 +12,7 @@
  * Copyright (c) 2020.
  */
 
-namespace Frenet\Shipping\Model\Catalog;
+namespace MagedIn\Frenet\Model\Catalog;
 
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Model\Product\Type;

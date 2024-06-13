@@ -13,10 +13,10 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Setup\Patch\Data;
+namespace MagedIn\Frenet\Setup\Patch\Data;
 
-use Frenet\Shipping\Model\Catalog\ProductType; 
-use Frenet\Shipping\Model\Cache\Type\Frenet;
+use MagedIn\Frenet\Model\Catalog\ProductType;
+use MagedIn\Frenet\Model\Cache\Type\Frenet;
 use Magento\Framework\Console\Cli;
 use Magento\Framework\Locale\Bundle\DataBundle;
 use Magento\Framework\Locale\ResolverInterface;

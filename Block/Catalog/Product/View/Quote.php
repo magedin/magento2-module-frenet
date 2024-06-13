@@ -3,7 +3,7 @@
  * Frenet Shipping Gateway
  *
  * @category Frenet
- * @package Frenet\Shipping
+ * @package MagedIn\Frenet
  *
  * @author Tiago Sampaio <tiago@tiagosampaio.com>
  * @link https://github.com/tiagosampaio
@@ -13,9 +13,9 @@
  */
 declare(strict_types=1);
 
-namespace Frenet\Shipping\Block\Catalog\Product\View;
+namespace MagedIn\Frenet\Block\Catalog\Product\View;
 
-use Frenet\Shipping\ViewModel\Catalog\Product\View\Quote as ViewModel;
+use MagedIn\Frenet\ViewModel\Catalog\Product\View\Quote as ViewModel;
 use Magento\Catalog\Block\Product\View;
 
 /**
@@ -23,7 +23,7 @@ use Magento\Catalog\Block\Product\View;
  *
  * @method ViewModel getViewModel
  *
- * @package Frenet\Shipping\Block\Catalog\Product\View
+ * @package MagedIn\Frenet\Block\Catalog\Product\View
  */
 class Quote extends View
 {

@@ -13,12 +13,12 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Cache\CacheKeyGenerator;
+namespace MagedIn\Frenet\Model\Cache\CacheKeyGenerator;
 
-use Frenet\Shipping\Model\Cache\CacheKeyGeneratorInterface;
-use Frenet\Shipping\Model\Quote\ItemQuantityCalculatorInterface;
-use Frenet\Shipping\Model\Quote\QuoteItemValidatorInterface;
-use Frenet\Shipping\Service\RateRequestProvider;
+use MagedIn\Frenet\Model\Cache\CacheKeyGeneratorInterface;
+use MagedIn\Frenet\Model\Quote\ItemQuantityCalculatorInterface;
+use MagedIn\Frenet\Model\Quote\QuoteItemValidatorInterface;
+use MagedIn\Frenet\Service\RateRequestProvider;
 use Magento\Framework\Serialize\SerializerInterface;
 use Magento\Quote\Model\Quote\Item\AbstractItem as QuoteItem;
 

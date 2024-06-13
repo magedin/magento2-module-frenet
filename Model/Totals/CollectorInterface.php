@@ -13,7 +13,7 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Totals;
+namespace MagedIn\Frenet\Model\Totals;
 
 use Magento\Quote\Model\Quote;
 

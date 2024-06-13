@@ -13,7 +13,7 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Formatters;
+namespace MagedIn\Frenet\Model\Formatters;
 
 /**
  * Class PostcodeNormalizer

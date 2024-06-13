@@ -3,7 +3,7 @@
  * Frenet Shipping Gateway
  *
  * @category Frenet
- * @package  Frenet\Shipping
+ * @package  MagedIn\Frenet
  *
  * @author   Tiago Sampaio <tiago@tiagosampaio.com>
  * @link     https://github.com/tiagosampaio
@@ -14,9 +14,9 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Config\Source\Catalog\Product\Quote;
+namespace MagedIn\Frenet\Model\Config\Source\Catalog\Product\Quote;
 
-use Frenet\Shipping\Model\Catalog\ProductType;
+use MagedIn\Frenet\Model\Catalog\ProductType;
 
 /**
  * Class ProductTypes

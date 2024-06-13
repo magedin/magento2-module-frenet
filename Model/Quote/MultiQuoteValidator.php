@@ -13,11 +13,11 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Quote;
+namespace MagedIn\Frenet\Model\Quote;
 
-use Frenet\Shipping\Model\Config;
-use Frenet\Shipping\Model\Packages\PackageLimit;
-use Frenet\Shipping\Service\RateRequestProvider;
+use MagedIn\Frenet\Model\Config;
+use MagedIn\Frenet\Model\Packages\PackageLimit;
+use MagedIn\Frenet\Service\RateRequestProvider;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 
 /**

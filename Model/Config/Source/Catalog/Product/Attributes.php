@@ -13,7 +13,7 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Config\Source\Catalog\Product;
+namespace MagedIn\Frenet\Model\Config\Source\Catalog\Product;
 
 /**
  * Class Attributes

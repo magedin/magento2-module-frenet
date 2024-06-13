@@ -13,10 +13,10 @@
 
 declare(strict_types=1);
 
-namespace Frenet\Shipping\Model;
+namespace MagedIn\Frenet\Model;
 
 use Frenet\ObjectType\Entity\Shipping\Quote\Service;
-use Frenet\Shipping\Service\RateRequestProvider;
+use MagedIn\Frenet\Service\RateRequestProvider;
 
 /**
  * Class Calculator

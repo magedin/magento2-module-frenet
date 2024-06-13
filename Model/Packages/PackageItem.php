@@ -13,13 +13,13 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Packages;
+namespace MagedIn\Frenet\Model\Packages;
 
-use Frenet\Shipping\Model\Catalog\Product\AttributesMappingInterface;
-use Frenet\Shipping\Model\Catalog\Product\DimensionsExtractorInterface;
-use Frenet\Shipping\Model\Catalog\Product\CategoryExtractor;
-use Frenet\Shipping\Model\Quote\ItemPriceCalculator;
-use Frenet\Shipping\Model\WeightConverterInterface;
+use MagedIn\Frenet\Model\Catalog\Product\AttributesMappingInterface;
+use MagedIn\Frenet\Model\Catalog\Product\DimensionsExtractorInterface;
+use MagedIn\Frenet\Model\Catalog\Product\CategoryExtractor;
+use MagedIn\Frenet\Model\Quote\ItemPriceCalculator;
+use MagedIn\Frenet\Model\WeightConverterInterface;
 use Magento\Catalog\Model\ResourceModel\ProductFactory;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Catalog\Model\Product;

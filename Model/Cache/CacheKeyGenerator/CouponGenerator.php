@@ -13,10 +13,10 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Cache\CacheKeyGenerator;
+namespace MagedIn\Frenet\Model\Cache\CacheKeyGenerator;
 
-use Frenet\Shipping\Model\Cache\CacheKeyGeneratorInterface;
-use Frenet\Shipping\Model\Quote\CouponProcessor;
+use MagedIn\Frenet\Model\Cache\CacheKeyGeneratorInterface;
+use MagedIn\Frenet\Model\Quote\CouponProcessor;
 
 class CouponGenerator implements CacheKeyGeneratorInterface
 {

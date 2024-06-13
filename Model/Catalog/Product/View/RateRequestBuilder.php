@@ -3,7 +3,7 @@
  * Frenet Shipping Gateway
  *
  * @category Frenet
- * @package  Frenet\Shipping
+ * @package  MagedIn\Frenet
  *
  * @author   Tiago Sampaio <tiago@tiagosampaio.com>
  * @link     https://github.com/tiagosampaio
@@ -12,10 +12,10 @@
  * Copyright (c) 2020.
  */
 
-namespace Frenet\Shipping\Model\Catalog\Product\View;
+namespace MagedIn\Frenet\Model\Catalog\Product\View;
 
-use Frenet\Shipping\Api\Data\ProductQuoteOptionsInterface;
-use Frenet\Shipping\Model\Catalog\Product\DimensionsExtractorInterface;
+use MagedIn\Frenet\Api\Data\ProductQuoteOptionsInterface;
+use MagedIn\Frenet\Model\Catalog\Product\DimensionsExtractorInterface;
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Framework\DataObject;
 use Magento\Framework\Exception\LocalizedException;
@@ -93,7 +93,7 @@ class RateRequestBuilder
                     __($rs)
                 );
             }
-    
+
             $this->fixQuoteItems($quote);
             $allitems = $quote->getAllItems();
         }
@@ -158,7 +158,7 @@ class RateRequestBuilder
             $optionsRequest = $options["options"];
             $objtManager = \Magento\Framework\App\ObjectManager::getInstance();
             $customOptions = $objtManager->get('Magento\Catalog\Model\Product\Option')->getProductOptionCollection($product);
-            
+
             $optionsValues = [];
             foreach ($customOptions->getItems() as $option) {
                 if (array_key_exists($option->getId(), $optionsRequest)) {

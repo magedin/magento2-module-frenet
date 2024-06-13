@@ -14,7 +14,7 @@ declare(strict_types = 1);
 
 namespace MagedIn\Frenet\Model;
 
-use Frenet\Shipping\Service\RateRequestProvider;
+use MagedIn\Frenet\Service\RateRequestProvider;
 use Magento\Catalog\Model\Product;
 use Magento\Quote\Model\Quote\Item\AbstractItem as QuoteItem;
 use Frenet\ObjectType\Entity\Shipping\Quote\ServiceInterface;
@@ -26,7 +26,7 @@ use Frenet\ObjectType\Entity\Shipping\Quote\ServiceInterface;
 class DeliveryTimeCalculator
 {
     /**
-     * @var \Frenet\Shipping\Model\Config
+     * @var \MagedIn\Frenet\Model\Config
      */
     private $config;
 
@@ -56,7 +56,7 @@ class DeliveryTimeCalculator
     public function __construct(
         \Magento\Catalog\Model\ResourceModel\Product $productResource,
         \Magento\Store\Model\StoreManagerInterface $storeManagement,
-        \Frenet\Shipping\Model\Config $config,
+        \MagedIn\Frenet\Model\Config $config,
         RateRequestProvider $rateRequestProvider
     ) {
         $this->productResource = $productResource;

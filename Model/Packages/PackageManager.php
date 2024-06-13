@@ -13,10 +13,10 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Packages;
+namespace MagedIn\Frenet\Model\Packages;
 
-use Frenet\Shipping\Model\Quote\QuoteItemValidatorInterface;
-use Frenet\Shipping\Model\Quote\ItemQuantityCalculatorInterface;
+use MagedIn\Frenet\Model\Quote\QuoteItemValidatorInterface;
+use MagedIn\Frenet\Model\Quote\ItemQuantityCalculatorInterface;
 use Magento\Quote\Model\Quote\Item\AbstractItem as QuoteItem;
 
 /**
@@ -36,7 +36,7 @@ class PackageManager
     private $packages = [];
 
     /**
-     * @var \Frenet\Shipping\Model\Packages\PackageFactory
+     * @var \MagedIn\Frenet\Model\Packages\PackageFactory
      */
     private $packageFactory;
 

@@ -13,9 +13,9 @@
 
 declare(strict_types=1);
 
-namespace Frenet\Shipping\Model\Catalog\Product;
+namespace MagedIn\Frenet\Model\Catalog\Product;
 
-use Frenet\Shipping\Model\Config;
+use MagedIn\Frenet\Model\Config;
 use Magento\Catalog\Model\Product;
 use Magento\Catalog\Model\ResourceModel\Product as ProductResource;
 use Magento\Quote\Model\Quote\Item\AbstractItem as QuoteItem;

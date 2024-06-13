@@ -13,7 +13,7 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Packages;
+namespace MagedIn\Frenet\Model\Packages;
 
 use Frenet\ObjectType\Entity\Shipping\Quote\Service;
 

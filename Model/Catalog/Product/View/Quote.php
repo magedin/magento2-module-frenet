@@ -13,14 +13,14 @@
  */
 declare(strict_types=1);
 
-namespace Frenet\Shipping\Model\Catalog\Product\View;
+namespace MagedIn\Frenet\Model\Catalog\Product\View;
 
 use Frenet\ObjectType\Entity\Shipping\Quote\ServiceInterface;
-use Frenet\Shipping\Api\QuoteProductInterface;
-use Frenet\Shipping\Model\Calculator;
-use Frenet\Shipping\Model\Config;
-use Frenet\Shipping\Service\RateRequestProvider;
-use Frenet\Shipping\Model\DeliveryTimeCalculator;
+use MagedIn\Frenet\Api\QuoteProductInterface;
+use MagedIn\Frenet\Model\Calculator;
+use MagedIn\Frenet\Model\Config;
+use MagedIn\Frenet\Service\RateRequestProvider;
+use MagedIn\Frenet\Model\DeliveryTimeCalculator;
 use Magento\Catalog\Api\Data\ProductInterface;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Framework\Exception\LocalizedException;

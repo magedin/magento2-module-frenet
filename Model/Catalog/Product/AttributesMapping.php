@@ -13,9 +13,9 @@
 
 declare(strict_types=1);
 
-namespace Frenet\Shipping\Model\Catalog\Product;
+namespace MagedIn\Frenet\Model\Catalog\Product;
 
-use Frenet\Shipping\Model\Config;
+use MagedIn\Frenet\Model\Config;
 
 /**
  * Class AttributesMapping

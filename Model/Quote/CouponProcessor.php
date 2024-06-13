@@ -11,10 +11,10 @@
  * Copyright (c) 2020.
  */
 
-namespace Frenet\Shipping\Model\Quote;
+namespace MagedIn\Frenet\Model\Quote;
 
 use Frenet\Command\Shipping\QuoteInterface;
-use Frenet\Shipping\Service\RateRequestProvider;
+use MagedIn\Frenet\Service\RateRequestProvider;
 use Magento\Checkout\Model\Session as CheckoutSession;
 
 /**

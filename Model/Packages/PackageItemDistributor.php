@@ -12,11 +12,11 @@
  */
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Packages;
+namespace MagedIn\Frenet\Model\Packages;
 
-use Frenet\Shipping\Model\Quote\QuoteItemValidatorInterface;
-use Frenet\Shipping\Model\Quote\ItemQuantityCalculator;
-use Frenet\Shipping\Service\RateRequestProvider;
+use MagedIn\Frenet\Model\Quote\QuoteItemValidatorInterface;
+use MagedIn\Frenet\Model\Quote\ItemQuantityCalculator;
+use MagedIn\Frenet\Service\RateRequestProvider;
 use Magento\Quote\Model\Quote\Item\AbstractItem as QuoteItem;
 
 /**

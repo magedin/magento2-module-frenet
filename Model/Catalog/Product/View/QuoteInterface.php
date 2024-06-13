@@ -12,7 +12,7 @@
  */
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Catalog\Product\View;
+namespace MagedIn\Frenet\Model\Catalog\Product\View;
 
 use Magento\Catalog\Api\Data\ProductInterface;
 

@@ -12,7 +12,7 @@
  */
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Block\Form\Element;
+namespace MagedIn\Frenet\Block\Form\Element;
 
 /**
  * Class Label
@@ -21,7 +21,7 @@ namespace Frenet\Shipping\Block\Form\Element;
 class Label extends \Magento\Framework\Data\Form\Element\Label
 {
     /**
-     * @var \Frenet\Shipping\Model\ModuleMetadata
+     * @var \MagedIn\Frenet\Model\ModuleMetadata
      */
     private $moduleMetadata;
 
@@ -29,7 +29,7 @@ class Label extends \Magento\Framework\Data\Form\Element\Label
         \Magento\Framework\Data\Form\Element\Factory $factoryElement,
         \Magento\Framework\Data\Form\Element\CollectionFactory $factoryCollection,
         \Magento\Framework\Escaper $escaper,
-        \Frenet\Shipping\Model\ModuleMetadata $moduleMetadata,
+        \MagedIn\Frenet\Model\ModuleMetadata $moduleMetadata,
         $data = []
     ) {
         parent::__construct($factoryElement, $factoryCollection, $escaper, $data);

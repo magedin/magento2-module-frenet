@@ -13,9 +13,9 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Quote;
+namespace MagedIn\Frenet\Model\Quote;
 
-use Frenet\Shipping\Model\Catalog\ProductType;
+use MagedIn\Frenet\Model\Catalog\ProductType;
 use Magento\Quote\Model\Quote\Item\AbstractItem as QuoteItem;
 
 /**

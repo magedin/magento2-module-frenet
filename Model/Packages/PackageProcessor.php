@@ -11,15 +11,15 @@
  * Copyright (c) 2020.
  */
 
-namespace Frenet\Shipping\Model\Packages;
+namespace MagedIn\Frenet\Model\Packages;
 
 use Frenet\ObjectType\Entity\Shipping\Quote\Service;
-use Frenet\Shipping\Model\Quote\QuoteItemValidatorInterface;
-use Frenet\Shipping\Model\ApiServiceInterface;
-use Frenet\Shipping\Model\Config;
-use Frenet\Shipping\Model\Quote\CouponProcessor;
-use Frenet\Shipping\Model\TotalsCollector;
-use Frenet\Shipping\Service\RateRequestProvider;
+use MagedIn\Frenet\Model\Quote\QuoteItemValidatorInterface;
+use MagedIn\Frenet\Model\ApiServiceInterface;
+use MagedIn\Frenet\Model\Config;
+use MagedIn\Frenet\Model\Quote\CouponProcessor;
+use MagedIn\Frenet\Model\TotalsCollector;
+use MagedIn\Frenet\Service\RateRequestProvider;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 
 /**

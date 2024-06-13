@@ -13,9 +13,9 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Packages;
+namespace MagedIn\Frenet\Model\Packages;
 
-use Frenet\Shipping\Model\Catalog\Product\DimensionsExtractorInterface;
+use MagedIn\Frenet\Model\Catalog\Product\DimensionsExtractorInterface;
 use Magento\Quote\Model\Quote\Item\AbstractItem as QuoteItem;
 
 /**
