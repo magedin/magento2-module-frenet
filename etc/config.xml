@@ -15,7 +15,7 @@
     <default>
         <carriers>
             <frenetshipping>
-                <model>Frenet\Shipping\Model\Carrier\Frenet</model>
+                <model>MagedIn\Frenet\Model\Carrier\Frenet</model>
                 <name>frenet</name>
                 <version>2.1.4</version>
                 <active>0</active>

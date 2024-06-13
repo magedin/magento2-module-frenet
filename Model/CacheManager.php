@@ -13,12 +13,12 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model;
+namespace MagedIn\Frenet\Model;
 
 use Frenet\Framework\Data\Serializer;
 use Frenet\ObjectType\Entity\Shipping\Quote\Service;
-use Frenet\Shipping\Model\Cache\CacheKeyGeneratorInterface;
-use Frenet\Shipping\Model\Cache\Type\Frenet as FrenetCacheType;
+use MagedIn\Frenet\Model\Cache\CacheKeyGeneratorInterface;
+use MagedIn\Frenet\Model\Cache\Type\Frenet as FrenetCacheType;
 use Magento\Framework\App\Cache\StateInterface;
 use Magento\Framework\App\CacheInterface;
 use Magento\Framework\Serialize\SerializerInterface;

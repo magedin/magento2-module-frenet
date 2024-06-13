@@ -2,7 +2,7 @@
  * Frenet Shipping Gateway
  *
  * @category Frenet
- * @package Frenet\Shipping
+ * @package MagedIn\Frenet
  *
  * @author Tiago Sampaio <tiago@tiagosampaio.com>
  * @link https://github.com/tiagosampaio
@@ -26,7 +26,7 @@ define([
 
     return uiElement.extend({
         defaults: {
-            template: 'Frenet_Shipping/catalog/product/view/quote'
+            template: 'MagedIn_Frenet/catalog/product/view/quote'
         },
         active: ko.observable(false),
         displayNoResults: ko.observable(false),

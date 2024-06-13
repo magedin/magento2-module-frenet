@@ -2,7 +2,7 @@
  * Frenet Shipping Gateway
  *
  * @category Frenet
- * @package Frenet\Shipping
+ * @package MagedIn\Frenet
  *
  * @author Tiago Sampaio <tiago@tiagosampaio.com>
  * @link https://github.com/tiagosampaio
@@ -14,7 +14,7 @@
 var config = {
     map: {
         '*': {
-            frenetProductViewQuote: 'Frenet_Shipping/js/catalog/product/view/quote'
+            frenetProductViewQuote: 'MagedIn_Frenet/js/catalog/product/view/quote'
         }
     }
 };

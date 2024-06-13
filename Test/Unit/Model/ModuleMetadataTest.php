@@ -12,10 +12,10 @@
  */
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Test\Unit\Model;
+namespace MagedIn\Frenet\Test\Unit\Model;
 
-use Frenet\Shipping\Model\ModuleMetadata;
-use Frenet\Shipping\Test\Unit\TestCase;
+use MagedIn\Frenet\Model\ModuleMetadata;
+use MagedIn\Frenet\Test\Unit\TestCase;
 use Magento\Framework\Composer\ComposerInformation;
 use PHPUnit\Framework\MockObject\MockObject;
 

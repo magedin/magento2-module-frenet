@@ -3,7 +3,7 @@
   Frenet Shipping Gateway
 
   @category Frenet
-  @package Frenet\Shipping
+  @package MagedIn\Frenet
 
   @author Tiago Sampaio <tiago@tiagosampaio.com>
   @link https://github.com/tiagosampaio
@@ -14,8 +14,8 @@
 
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
     <router id="standard">
-        <route id="frenet_shipping" frontName="frenet">
-            <module name="Frenet_Shipping" />
+        <route id="magedIn_frenet" frontName="frenet">
+            <module name="MagedIn_Frenet" />
         </route>
     </router>
 </config>

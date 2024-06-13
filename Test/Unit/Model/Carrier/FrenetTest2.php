@@ -13,9 +13,9 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Test\Unit\Model\Carrier;
+namespace MagedIn\Frenet\Test\Unit\Model\Carrier;
 
-use Frenet\Shipping\Test\Unit\TestCase;
+use MagedIn\Frenet\Test\Unit\TestCase;
 
 /**
  * Class Frenet
