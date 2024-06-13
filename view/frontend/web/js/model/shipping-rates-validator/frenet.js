@@ -12,7 +12,7 @@
 define([
     'jquery',
     'mageUtils',
-    '../shipping-rates-validation-rules/frenetshipping',
+    'frenetShippingRatesValidationRules',
     'mage/translate'
 ], function ($, utils, validationRules, $t) {
     'use strict';
