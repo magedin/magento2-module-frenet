@@ -1,7 +1,6 @@
 {
-    "name": "frenet/frenet-magento2",
+    "name": "magedin/module-frenet",
     "type": "magento2-module",
-    "version": "2.4.6",
     "autoload": {
         "files": [
             "registration.php"
@@ -52,7 +51,7 @@
         }
     ],
     "support": {
-        "email": "contato@frenet.com.br"
+        "email": "support@magedin.com"
     },
     "minimum-stability": "stable",
     "scripts": {
