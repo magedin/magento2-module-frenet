@@ -12,7 +12,9 @@
 var config = {
     map: {
         '*': {
-            frenetProductViewQuote: 'MagedIn_Frenet/js/catalog/product/view/quote'
+            frenetProductViewQuote: 'MagedIn_Frenet/js/catalog/product/view/quote',
+            frenetShippingRatesValidator: 'MagedIn_Frenet/js/model/shipping-rates-validator/frenet',
+            frenetShippingRatesValidationRules: 'MagedIn_Frenet/js/model/shipping-rates-validation-rules/frenet'
         }
     }
 };

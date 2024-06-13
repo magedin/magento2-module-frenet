@@ -8,24 +8,23 @@
  *
  * @author    MagedIn Support <support@magedin.com>
  */
-
 define([
     'uiComponent',
     'Magento_Checkout/js/model/shipping-rates-validator',
     'Magento_Checkout/js/model/shipping-rates-validation-rules',
-    '../../model/shipping-rates-validator/frenetshipping',
-    '../../model/shipping-rates-validation-rules/frenetshipping'
+    'frenetShippingRatesValidator',
+    'frenetShippingRatesValidationRules'
 ], function (
     Component,
     defaultShippingRatesValidator,
     defaultShippingRatesValidationRules,
-    frenetshippingShippingRatesValidator,
-    frenetshippingShippingRatesValidationRules
+    ratesValidator,
+    ratesValidationRules
 ) {
     'use strict';
 
-    defaultShippingRatesValidator.registerValidator('frenetshipping', frenetshippingShippingRatesValidator);
-    defaultShippingRatesValidationRules.registerRules('frenetshipping', frenetshippingShippingRatesValidationRules);
+    defaultShippingRatesValidator.registerValidator('magedin_frenet', ratesValidator);
+    defaultShippingRatesValidationRules.registerRules('magedin_frenet', ratesValidationRules);
 
     return Component;
 });
