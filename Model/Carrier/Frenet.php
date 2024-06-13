@@ -32,7 +32,7 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
     /**
      * @var string
      */
-    const CARRIER_CODE = 'frenetshipping';
+    const CARRIER_CODE = 'magedin_frenet';
 
     /**
      * @var string
