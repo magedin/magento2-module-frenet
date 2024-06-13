@@ -15,15 +15,15 @@
     <preference for="Frenet\Command\Shipping\QuoteInterface" type="Frenet\Command\Shipping\Quote"/>
 
 
-    <preference for="Frenet\Shipping\Model\ApiServiceInterface" type="Frenet\Shipping\Model\ApiService"/>
-    <preference for="Frenet\Shipping\Model\CalculatorInterface" type="Frenet\Shipping\Model\Calculator"/>
-    <preference for="Frenet\Shipping\Model\WeightConverterInterface" type="Frenet\Shipping\Model\WeightConverter"/>
-    <preference for="Frenet\Shipping\Model\ServiceFinderInterface" type="Frenet\Shipping\Model\ServiceFinder"/>
-    <preference for="Frenet\Shipping\Model\TrackingInterface" type="Frenet\Shipping\Model\Tracking"/>
-    <preference for="Frenet\Shipping\Model\Quote\MultiQuoteValidatorInterface" type="Frenet\Shipping\Model\Quote\MultiQuoteValidator"/>
-    <preference for="Frenet\Shipping\Model\Quote\ItemQuantityCalculatorInterface" type="Frenet\Shipping\Model\Quote\ItemQuantityCalculator"/>
-    <preference for="Frenet\Shipping\Model\Quote\QuoteItemValidatorInterface" type="Frenet\Shipping\Model\Quote\ItemValidator"/>
-    <preference for="Frenet\Shipping\Model\Catalog\Product\DimensionsExtractorInterface" type="Frenet\Shipping\Model\Catalog\Product\DimensionsExtractor"/>
+    <preference for="MagedIn\Frenet\Model\ApiServiceInterface" type="MagedIn\Frenet\Model\ApiService"/>
+    <preference for="MagedIn\Frenet\Model\CalculatorInterface" type="MagedIn\Frenet\Model\Calculator"/>
+    <preference for="MagedIn\Frenet\Model\WeightConverterInterface" type="MagedIn\Frenet\Model\WeightConverter"/>
+    <preference for="MagedIn\Frenet\Model\ServiceFinderInterface" type="MagedIn\Frenet\Model\ServiceFinder"/>
+    <preference for="MagedIn\Frenet\Model\TrackingInterface" type="MagedIn\Frenet\Model\Tracking"/>
+    <preference for="MagedIn\Frenet\Model\Quote\MultiQuoteValidatorInterface" type="MagedIn\Frenet\Model\Quote\MultiQuoteValidator"/>
+    <preference for="MagedIn\Frenet\Model\Quote\ItemQuantityCalculatorInterface" type="MagedIn\Frenet\Model\Quote\ItemQuantityCalculator"/>
+    <preference for="MagedIn\Frenet\Model\Quote\QuoteItemValidatorInterface" type="MagedIn\Frenet\Model\Quote\ItemValidator"/>
+    <preference for="MagedIn\Frenet\Model\Catalog\Product\DimensionsExtractorInterface" type="Frenet\Shipping\Model\Catalog\Product\DimensionsExtractor"/>
     <preference for="Frenet\Shipping\Model\Catalog\Product\AttributesMappingInterface" type="Frenet\Shipping\Model\Catalog\Product\AttributesMapping"/>
     <preference for="Frenet\Shipping\Model\Cache\CacheKeyGeneratorInterface" type="Frenet\Shipping\Model\Cache\CacheKeyGenerator"/>
 

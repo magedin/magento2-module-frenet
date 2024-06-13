@@ -3,7 +3,7 @@
  * Frenet Shipping Gateway
  *
  * @category Frenet
- * @package Frenet\Shipping
+ * @package MagedIn\Frenet
  *
  * @author Tiago Sampaio <tiago@tiagosampaio.com>
  * @link https://github.com/tiagosampaio
@@ -12,15 +12,15 @@
  * Copyright (c) 2020.
  */
 
-namespace Frenet\Shipping\ViewModel\Catalog\Product\View;
+namespace MagedIn\Frenet\ViewModel\Catalog\Product\View;
 
-use Frenet\Shipping\Block\Catalog\Product\View\Quote as QuoteBlock;
-use Frenet\Shipping\Model\Config;
+use MagedIn\Frenet\Block\Catalog\Product\View\Quote as QuoteBlock;
+use MagedIn\Frenet\Model\Config;
 
 /**
  * Class Quote
  *
- * @package Frenet\Shipping\ViewModel\Catalog\Product\View
+ * @package MagedIn\Frenet\ViewModel\Catalog\Product\View
  */
 class Quote implements \Magento\Framework\View\Element\Block\ArgumentInterface
 {

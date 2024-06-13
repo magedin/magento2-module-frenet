@@ -3,7 +3,7 @@
  * Frenet Shipping Gateway
  *
  * @category Frenet
- * @package Frenet\Shipping
+ * @package MagedIn\Frenet
  *
  * @author Tiago Sampaio <tiago@tiagosampaio.com>
  * @link https://github.com/tiagosampaio
@@ -12,10 +12,10 @@
  * Copyright (c) 2020.
  */
 
-namespace Frenet\Shipping\Test\Unit\Service;
+namespace MagedIn\Frenet\Test\Unit\Service;
 
-use Frenet\Shipping\Service\RateRequestProvider;
-use Frenet\Shipping\Test\Unit\TestCase;
+use MagedIn\Frenet\Service\RateRequestProvider;
+use MagedIn\Frenet\Test\Unit\TestCase;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use PHPUnit\Framework\MockObject\MockObject;

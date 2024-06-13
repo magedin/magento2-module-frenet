@@ -3,7 +3,7 @@
   Frenet Shipping Gateway
 
   @category Frenet
-  @package Frenet\Shipping
+  @package MagedIn\Frenet
 
   @author Tiago Sampaio <tiago@tiagosampaio.com>
   @link https://github.com/tiagosampaio
@@ -16,13 +16,13 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
     <!--
     <route url="/V1/frenetShipping/quote/productId/:id/:postcode/:qty" method="POST">
-        <service class="Frenet\Shipping\Api\QuoteProductInterface" method="quoteByProductId"/>
+        <service class="MagedIn\Frenet\Api\QuoteProductInterface" method="quoteByProductId"/>
         <resources>
             <resource ref="anonymous"/>
         </resources>
     </route>
     <route url="/V1/frenetShipping/quote/productSku/:sku/:postcode/:qty" method="POST">
-        <service class="Frenet\Shipping\Api\QuoteProductInterface" method="quoteByProductSku"/>
+        <service class="MagedIn\Frenet\Api\QuoteProductInterface" method="quoteByProductSku"/>
         <resources>
             <resource ref="anonymous"/>
         </resources>

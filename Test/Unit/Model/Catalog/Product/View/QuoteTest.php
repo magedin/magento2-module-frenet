@@ -3,7 +3,7 @@
  * Frenet Shipping Gateway
  *
  * @category Frenet
- * @package  Frenet\Shipping
+ * @package  MagedIn\Frenet
  *
  * @author   Tiago Sampaio <tiago@tiagosampaio.com>
  * @link     https://github.com/tiagosampaio
@@ -12,17 +12,17 @@
  * Copyright (c) 2020.
  */
 
-namespace Frenet\Shipping\Test\Unit\Model\Catalog\Product\View;
+namespace MagedIn\Frenet\Test\Unit\Model\Catalog\Product\View;
 
 use Frenet\ObjectType\Entity\Shipping\Quote\ServiceInterface;
 use Frenet\ObjectType\Entity\Shipping\Quote\ServiceFactory;
-use Frenet\Shipping\Model\Catalog\Product\View\Quote;
-use Frenet\Shipping\Model\Catalog\ProductType;
-use Frenet\Shipping\Model\Packages\Package;
-use Frenet\Shipping\Model\Packages\PackageItem;
-use Frenet\Shipping\Model\Packages\PackageManager;
-use Frenet\Shipping\Model\Packages\PackageProcessor;
-use Frenet\Shipping\Test\Unit\TestCase;
+use MagedIn\Frenet\Model\Catalog\Product\View\Quote;
+use MagedIn\Frenet\Model\Catalog\ProductType;
+use MagedIn\Frenet\Model\Packages\Package;
+use MagedIn\Frenet\Model\Packages\PackageItem;
+use MagedIn\Frenet\Model\Packages\PackageManager;
+use MagedIn\Frenet\Model\Packages\PackageProcessor;
+use MagedIn\Frenet\Test\Unit\TestCase;
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Catalog\Model\Product;
 use Magento\Framework\DataObject;
@@ -106,12 +106,12 @@ class QuoteTest extends TestCase
         /**
          * Build Package
          */
-        $dimensionsExtractor = $this->createMock(\Frenet\Shipping\Model\Catalog\Product\DimensionsExtractor::class);
+        $dimensionsExtractor = $this->createMock(\MagedIn\Frenet\Model\Catalog\Product\DimensionsExtractor::class);
         $dimensionsExtractor->method('setProductByCartItem')->willReturn($dimensionsExtractor);
 
         $packageItem = $this->getObject(PackageItem::class);
 
-        $packageItemFactory = $this->createMock(\Frenet\Shipping\Model\Packages\PackageItemFactory::class);
+        $packageItemFactory = $this->createMock(\MagedIn\Frenet\Model\Packages\PackageItemFactory::class);
         $packageItemFactory->method('create')->willReturn($packageItem);
 
         $this->package = $this->getObject(Package::class, [
@@ -123,15 +123,15 @@ class QuoteTest extends TestCase
         $this->packageManager->method('createPackage')->willReturn($this->package);
 
 
-        $quoteItemValidator = $this->createMock(\Frenet\Shipping\Model\Quote\QuoteItemValidatorInterface::class);
+        $quoteItemValidator = $this->createMock(\MagedIn\Frenet\Model\Quote\QuoteItemValidatorInterface::class);
         $quoteItemValidator->method('validate')->willReturn(true);
 
-        $config = $this->createMock(\Frenet\Shipping\Model\Config::class);
+        $config = $this->createMock(\MagedIn\Frenet\Model\Config::class);
         $config->method('getOriginPostcode')->willReturn('06999-000');
 
         $quote = $this->getObject(\Frenet\Command\Shipping\Quote::class);
 
-        $apiService = $this->createMock(\Frenet\Shipping\Model\ApiService::class);
+        $apiService = $this->createMock(\MagedIn\Frenet\Model\ApiService::class);
         $apiService->method('shipping')->method('quote')->willReturn($quote);
 
         $this->packageProcessor = $this->getObject(PackageProcessor::class, [

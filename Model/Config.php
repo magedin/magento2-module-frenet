@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace Frenet\Shipping\Model;
+namespace MagedIn\Frenet\Model;
 
 use \Magento\Store\Model\ScopeInterface;
 
@@ -253,7 +253,7 @@ class Config
      */
     public function getCarrierConfig($field, $store = null)
     {
-        return $this->get('carriers', \Frenet\Shipping\Model\Carrier\Frenet::CARRIER_CODE, $field, $store);
+        return $this->get('carriers', \MagedIn\Frenet\Model\Carrier\Frenet::CARRIER_CODE, $field, $store);
     }
 
     /**

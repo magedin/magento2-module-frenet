@@ -11,7 +11,7 @@
  * Copyright (c) 2020.
  */
 
-namespace Frenet\Shipping\Model;
+namespace MagedIn\Frenet\Model;
 
 use Magento\Checkout\Model\Session as CheckoutSession;
 use Magento\Quote\Model\Quote;

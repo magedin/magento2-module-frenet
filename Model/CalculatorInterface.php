@@ -13,9 +13,9 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model;
+namespace MagedIn\Frenet\Model;
 
-use Frenet\Shipping\Model\Packages\PackageItem;
+use MagedIn\Frenet\Model\Packages\PackageItem;
 
 /**
  * Interface CalculatorInterface

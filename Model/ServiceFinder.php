@@ -13,7 +13,7 @@
 
 declare(strict_types=1);
 
-namespace Frenet\Shipping\Model;
+namespace MagedIn\Frenet\Model;
 
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Sales\Api\ShipmentTrackRepositoryInterface;
@@ -108,7 +108,7 @@ class ServiceFinder implements ServiceFinderInterface
         }
 
         $shippingDescription = $track->getShipment()->getOrder()->getShippingDescription();
-        $parts = explode(\Frenet\Shipping\Model\Carrier\Frenet::STR_SEPARATOR, $shippingDescription);
+        $parts = explode(\MagedIn\Frenet\Model\Carrier\Frenet::STR_SEPARATOR, $shippingDescription);
 
         /**
          * Reversing the array makes it more performatic because it begins searching by the last piece.

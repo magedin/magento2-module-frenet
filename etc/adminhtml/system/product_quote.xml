@@ -3,7 +3,7 @@
   Frenet Shipping Gateway
 
   @category Frenet
-  @package Frenet\Shipping
+  @package MagedIn\Frenet
 
   @author Tiago Sampaio <tiago@tiagosampaio.com>
   @link https://github.com/tiagosampaio
@@ -21,7 +21,7 @@
         </field>
         <field id="product_types" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Enable for Product Types</label>
-            <source_model>Frenet\Shipping\Model\Config\Source\Catalog\Product\Quote\ProductTypes</source_model>
+            <source_model>MagedIn\Frenet\Model\Config\Source\Catalog\Product\Quote\ProductTypes</source_model>
             <comment>These are the product types allowed to be quote in the product page.</comment>
             <depends>
                 <field id="enabled">1</field>

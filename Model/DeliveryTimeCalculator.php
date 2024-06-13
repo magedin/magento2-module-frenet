@@ -12,7 +12,7 @@
  */
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model;
+namespace MagedIn\Frenet\Model;
 
 use Frenet\Shipping\Service\RateRequestProvider;
 use Magento\Catalog\Model\Product;

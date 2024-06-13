@@ -11,7 +11,7 @@
  * Copyright (c) 2020.
  */
 
-namespace Frenet\Shipping\Service;
+namespace MagedIn\Frenet\Service;
 
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Quote\Model\Quote\Address\RateRequest;
@@ -20,7 +20,7 @@ use Magento\Quote\Model\Quote\Address\RateRequestFactory;
 /**
  * Class RateRequestProvider
  *
- * @package Frenet\Shipping\Service
+ * @package MagedIn\Frenet\Service
  */
 class RateRequestProvider
 {

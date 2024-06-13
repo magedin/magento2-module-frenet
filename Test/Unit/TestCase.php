@@ -12,7 +12,7 @@
  */
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Test\Unit;
+namespace MagedIn\Frenet\Test\Unit;
 
 use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 

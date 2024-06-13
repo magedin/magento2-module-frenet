@@ -3,7 +3,7 @@
  * Frenet Shipping Gateway
  *
  * @category Frenet
- * @package  Frenet\Shipping
+ * @package  MagedIn\Frenet
  *
  * @author   Tiago Sampaio <tiago@tiagosampaio.com>
  * @link     https://github.com/tiagosampaio
@@ -12,7 +12,7 @@
  * Copyright (c) 2020.
  */
 
-namespace Frenet\Shipping\Controller\Product;
+namespace MagedIn\Frenet\Controller\Product;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
@@ -22,18 +22,18 @@ use Magento\Framework\Controller\ResultFactory;
 /**
  * Class Quote
  *
- * @package Frenet\Shipping\Controller\Catalog\Product
+ * @package MagedIn\Frenet\Controller\Catalog\Product
  */
 class Quote extends Action implements HttpPostActionInterface
 {
     /**
-     * @var \Frenet\Shipping\Api\QuoteProductInterface
+     * @var \MagedIn\Frenet\Api\QuoteProductInterface
      */
     private $quoteProduct;
 
     public function __construct(
         Context $context,
-        \Frenet\Shipping\Api\QuoteProductInterface $quoteProduct
+        \MagedIn\Frenet\Api\QuoteProductInterface $quoteProduct
     ) {
         parent::__construct($context);
         $this->quoteProduct = $quoteProduct;

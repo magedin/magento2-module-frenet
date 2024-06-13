@@ -13,6 +13,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
     \Magento\Framework\Component\ComponentRegistrar::MODULE,
-    'Frenet_Shipping',
+    'MagedIn_Frenet',
     __DIR__
 );

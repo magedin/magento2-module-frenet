@@ -10,7 +10,7 @@
  */
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model;
+namespace MagedIn\Frenet\Model;
 
 use \Psr\Log\LoggerInterface;
 

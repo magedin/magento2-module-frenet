@@ -29,7 +29,7 @@
                                                         <item name="shipping-rates-validation" xsi:type="array">
                                                             <item name="children" xsi:type="array">
                                                                 <item name="frenetshipping-rates-validation" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">Frenet_Shipping/js/view/shipping-rates-validation/frenetshipping</item>
+                                                                    <item name="component" xsi:type="string">MagedIn_Frenet/js/view/shipping-rates-validation/frenetshipping</item>
                                                                 </item>
                                                             </item>
                                                         </item>

@@ -13,7 +13,7 @@
 
 declare(strict_types = 1);
 
-namespace Frenet\Shipping\Model\Cache;
+namespace MagedIn\Frenet\Model\Cache;
 
 use Magento\Framework\Serialize\SerializerInterface;
 
