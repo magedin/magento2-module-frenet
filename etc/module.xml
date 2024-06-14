@@ -10,6 +10,11 @@
   * @author    MagedIn Support <support@magedin.com>
   -->
 
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
-    <module name="MagedIn_Frenet" setup_version="2.0.0"/>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="MagedIn_Frenet">
+        <sequence>
+            <module name="MagedIn_Shipping"/>
+        </sequence>
+    </module>
 </config>
