@@ -10,113 +10,132 @@
   * @author    MagedIn Support <support@magedin.com>
   -->
 
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
         <section id="carriers">
             <group id="magedin">
-                <group id="magedin_frenet" translate="label comment" type="text" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Frenet Shipping Gateway</label>
-                <fieldset_css>complex frenet-shipping-header-section</fieldset_css>
-                <comment><![CDATA[You will need an API token to use Frenet services. Please visit <a href='http://painel.frenet.com.br/' target='_blank'>the official website</a> and create your account.]]></comment>
-                <field id="version" translate="note" type="MagedIn\Frenet\Block\Form\Element\Label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Version</label>
-                    <comment><![CDATA[This is the version of your module installation.]]></comment>
-                </field>
-                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Enabled</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <config_path>carriers/magedin_frenet/active</config_path>
-                </field>
-                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Title</label>
-                    <config_path>carriers/magedin_frenet/title</config_path>
-                </field>
-                <field id="token" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>API Token</label>
-                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
-                    <config_path>carriers/magedin_frenet/token</config_path>
-                </field>
-                <field id="specificerrmsg" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Displayed Error Message</label>
-                    <config_path>carriers/magedin_frenet/specificerrmsg</config_path>
-                </field>
-                <field id="show_shipping_forecast" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Show Shipping Forecast</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <config_path>carriers/magedin_frenet/show_shipping_forecast</config_path>
-                </field>
-                <field id="shipping_forecast_message" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Shipping Forecast Message</label>
-                    <config_path>carriers/magedin_frenet/shipping_forecast_message</config_path>
-                    <depends>
-                        <field id="show_shipping_forecast">1</field>
-                    </depends>
-                </field>
+                <group id="magedin_frenet" translate="label comment" type="text" sortOrder="0" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Frenet Shipping Gateway</label>
+                    <fieldset_css>complex frenet-shipping-header-section</fieldset_css>
+                    <comment>
+                        <![CDATA[You will need an API token to use Frenet services. Please visit <a href='http://painel.frenet.com.br/?source=magedin-module-frenet-extension' target='_blank'>the official website</a> and create your account.]]></comment>
+                    <field id="version" translate="note" type="MagedIn\Frenet\Block\Form\Element\Label" sortOrder="1"
+                           showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Version</label>
+                        <comment><![CDATA[This is the version of your module installation.]]></comment>
+                    </field>
+                    <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1"
+                           showInWebsite="1" showInStore="1">
+                        <label>Enabled</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>carriers/magedin_frenet/active</config_path>
+                    </field>
+                    <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                           showInStore="1">
+                        <label>Title</label>
+                        <config_path>carriers/magedin_frenet/title</config_path>
+                    </field>
+                    <field id="token" translate="label" type="obscure" sortOrder="30" showInDefault="1"
+                           showInWebsite="1" showInStore="1">
+                        <label>API Token</label>
+                        <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                        <config_path>carriers/magedin_frenet/token</config_path>
+                    </field>
+                    <field id="specificerrmsg" translate="label" type="textarea" sortOrder="40" showInDefault="1"
+                           showInWebsite="1" showInStore="1">
+                        <label>Displayed Error Message</label>
+                        <config_path>carriers/magedin_frenet/specificerrmsg</config_path>
+                    </field>
+                    <field id="show_shipping_forecast" translate="label" type="select" sortOrder="50" showInDefault="1"
+                           showInWebsite="1" showInStore="1">
+                        <label>Show Shipping Forecast</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>carriers/magedin_frenet/show_shipping_forecast</config_path>
+                    </field>
+                    <field id="shipping_forecast_message" translate="label" type="text" sortOrder="60" showInDefault="1"
+                           showInWebsite="1" showInStore="1">
+                        <label>Shipping Forecast Message</label>
+                        <config_path>carriers/magedin_frenet/shipping_forecast_message</config_path>
+                        <depends>
+                            <field id="show_shipping_forecast">1</field>
+                        </depends>
+                    </field>
 
-                <!-- MULTI QUOTE ENABLED -->
-                <field id="multi_quote" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
-                    <label>Enable Multi Quote</label>
-                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
-                    <comment><![CDATA[When the cart's total weight is greater than the limit (30kg) multiple calls will be done for Correios.<br/><br/><b>Note</b>: with this feature enabled you'll need to ship the products in diferent packages.<br/><br/><b style='color:red;'>Warning</b>: The shipping rules and restrictions based in cart total or weight may not work properly when this option is enabled.]]></comment>
-                    <config_path>carriers/magedin_frenet/multi_quote</config_path>
-                </field>
+                    <!-- MULTI QUOTE ENABLED -->
+                    <field id="multi_quote" translate="label" type="select" sortOrder="70" showInDefault="1"
+                           showInWebsite="1" showInStore="1">
+                        <label>Enable Multi Quote</label>
+                        <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                        <comment>
+                            <![CDATA[When the cart's total weight is greater than the limit (30kg) multiple calls will be done for Correios.<br/><br/><b>Note</b>: with this feature enabled you'll need to ship the products in diferent packages.<br/><br/><b style='color:red;'>Warning</b>: The shipping rules and restrictions based in cart total or weight may not work properly when this option is enabled.]]></comment>
+                        <config_path>carriers/magedin_frenet/multi_quote</config_path>
+                    </field>
 
-                <!-- ATTRIBUTES MAPPING -->
-                <include path="MagedIn_Frenet::system/attributes_mapping.xml"/>
+                    <!-- ATTRIBUTES MAPPING -->
+                    <include path="MagedIn_Frenet::system/attributes_mapping.xml"/>
 
-                <!-- DEFAULT MEASUREMENTS -->
-                <include path="MagedIn_Frenet::system/default_measurements.xml"/>
+                    <!-- DEFAULT MEASUREMENTS -->
+                    <include path="MagedIn_Frenet::system/default_measurements.xml"/>
 
-                <!-- PRODUCT QUOTE OPTIONS -->
-                <include path="MagedIn_Frenet::system/product_quote.xml"/>
+                    <!-- PRODUCT QUOTE OPTIONS -->
+                    <include path="MagedIn_Frenet::system/product_quote.xml"/>
 
-                <!-- ADDITIONAL LEAD TIME -->
-                <field id="additional_lead_time" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Additional Lead Time</label>
-                    <frontend_class>validate-number</frontend_class>
-                    <comment>The additional lead time (in days) that will be summed to original lead time.</comment>
-                    <config_path>carriers/magedin_frenet/additional_lead_time</config_path>
-                </field>
+                    <!-- ADDITIONAL LEAD TIME -->
+                    <field id="additional_lead_time" translate="label" type="text" sortOrder="300" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>Additional Lead Time</label>
+                        <frontend_class>validate-number</frontend_class>
+                        <comment>The additional lead time (in days) that will be summed to original lead time.</comment>
+                        <config_path>carriers/magedin_frenet/additional_lead_time</config_path>
+                    </field>
 
-                <field id="sallowspecific" translate="label" type="select" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Ship to Applicable Countries</label>
-                    <frontend_class>shipping-applicable-country</frontend_class>
-                    <source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
-                    <config_path>carriers/magedin_frenet/sallowspecific</config_path>
-                </field>
-                <field id="specificcountry" translate="label" type="multiselect" sortOrder="410" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Ship to Specific Countries</label>
-                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
-                    <can_be_empty>1</can_be_empty>
-                    <config_path>carriers/magedin_frenet/specificcountry</config_path>
-                </field>
-                <field id="showmethod" translate="label" type="select" sortOrder="420" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Show Method if Not Applicable</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <config_path>carriers/magedin_frenet/showmethod</config_path>
-                </field>
+                    <field id="sallowspecific" translate="label" type="select" sortOrder="400" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>Ship to Applicable Countries</label>
+                        <frontend_class>shipping-applicable-country</frontend_class>
+                        <source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
+                        <config_path>carriers/magedin_frenet/sallowspecific</config_path>
+                    </field>
+                    <field id="specificcountry" translate="label" type="multiselect" sortOrder="410" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>Ship to Specific Countries</label>
+                        <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                        <can_be_empty>1</can_be_empty>
+                        <config_path>carriers/magedin_frenet/specificcountry</config_path>
+                    </field>
+                    <field id="showmethod" translate="label" type="select" sortOrder="420" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>Show Method if Not Applicable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>carriers/magedin_frenet/showmethod</config_path>
+                    </field>
 
-                <!-- DEBUG -->
-                <field id="debug" translate="label" type="select" sortOrder="500" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Debug</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                    <config_path>carriers/magedin_frenet/debug</config_path>
-                </field>
-                <field id="debug_filename" translate="label" type="text" sortOrder="510" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Debug Filename</label>
-                    <config_path>carriers/magedin_frenet/debug_filename</config_path>
-                    <depends>
-                        <field id="debug">1</field>
-                    </depends>
-                </field>
+                    <!-- DEBUG -->
+                    <field id="debug" translate="label" type="select" sortOrder="500" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>Debug</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                        <config_path>carriers/magedin_frenet/debug</config_path>
+                    </field>
+                    <field id="debug_filename" translate="label" type="text" sortOrder="510" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>Debug Filename</label>
+                        <config_path>carriers/magedin_frenet/debug_filename</config_path>
+                        <depends>
+                            <field id="debug">1</field>
+                        </depends>
+                    </field>
 
-                <!-- OTHER OPTIONS -->
-                <field id="sort_order" translate="label" type="text" sortOrder="900" showInDefault="1" showInWebsite="1" showInStore="0">
-                    <label>Sort Order</label>
-                    <frontend_class>validate-number</frontend_class>
-                    <config_path>carriers/magedin_frenet/sort_order</config_path>
-                </field>
-            </group>
+                    <!-- OTHER OPTIONS -->
+                    <field id="sort_order" translate="label" type="text" sortOrder="900" showInDefault="1"
+                           showInWebsite="1" showInStore="0">
+                        <label>Sort Order</label>
+                        <frontend_class>validate-number</frontend_class>
+                        <config_path>carriers/magedin_frenet/sort_order</config_path>
+                    </field>
+                </group>
             </group>
         </section>
     </system>
