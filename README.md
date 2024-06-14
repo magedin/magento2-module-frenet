@@ -1,9 +1,9 @@
 # Frenet Gateway de Fretes para Magento 2
 Integre seu Magento 2 aos serviços da Frenet de forma rápida e fácil.
 
-[![Build Status](https://travis-ci.org/FrenetGatewaydeFretes/frenet-magento2.svg?branch=2.2-develop)](https://travis-ci.org/FrenetGatewaydeFretes/frenet-magento2)
 ![Packagist](https://img.shields.io/packagist/dt/frenet/frenet-magento2)
-[![PHP v7.0](https://img.shields.io/badge/php-v7.0-blue.svg)](http://www.php.net)
+[![PHP v7.3 and above](https://img.shields.io/badge/php-v7.3%20and%20above-blue.svg)](http://www.php.net)
+[![PHP v8.0 and above](https://img.shields.io/badge/php-v8.0%20and%20above-blue.svg)](http://www.php.net)
 [![Magento v2.3](https://img.shields.io/badge/magento-v2.3-green.svg)](https://magento.com/)
 [![Magento v2.4](https://img.shields.io/badge/magento-v2.4-green.svg)](https://magento.com/)
 

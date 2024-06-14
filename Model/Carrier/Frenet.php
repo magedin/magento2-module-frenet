@@ -14,6 +14,7 @@ declare(strict_types = 1);
 
 namespace MagedIn\Frenet\Model\Carrier;
 
+use Exception;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Quote\Model\Quote\Address\RateResult\Method as MethodInstance;
 use Magento\Shipping\Model\Carrier\AbstractCarrierOnline;
