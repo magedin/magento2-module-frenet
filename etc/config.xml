@@ -39,29 +39,23 @@
                 <shipping_forecast_message>{{d}} dia(s)</shipping_forecast_message>
 
                 <!-- ATTRIBUTES MAPPING -->
-                <attributes_mapping>
-                    <weight_attribute>weight</weight_attribute>
-                    <height_attribute>volume_height</height_attribute>
-                    <length_attribute>volume_length</length_attribute>
-                    <width_attribute>volume_width</width_attribute>
-                </attributes_mapping>
+                <attributes_mapping_weight_attribute>weight</attributes_mapping_weight_attribute>
+                <attributes_mapping_height_attribute>volume_height</attributes_mapping_height_attribute>
+                <attributes_mapping_length_attribute>volume_length</attributes_mapping_length_attribute>
+                <attributes_mapping_width_attribute>volume_width</attributes_mapping_width_attribute>
 
                 <!-- ADDITIONAL LEAD TIME -->
                 <additional_lead_time>0</additional_lead_time>
 
                 <!-- DEFAULT MEASUREMENTS -->
-                <default_measurements>
-                    <default_weight>1</default_weight>
-                    <default_height>2</default_height>
-                    <default_length>16</default_length>
-                    <default_width>11</default_width>
-                </default_measurements>
+                <default_measurements_default_weight>1</default_measurements_default_weight>
+                <default_measurements_default_height>2</default_measurements_default_height>
+                <default_measurements_default_length>16</default_measurements_default_length>
+                <default_measurements_default_width>11</default_measurements_default_width>
 
                 <!-- PRODUCT QUOTE -->
-                <product_quote>
-                    <enabled>0</enabled>
-                    <product_types>simple,configurable,bundle,grouped</product_types>
-                </product_quote>
+                <product_quote_enabled>0</product_quote_enabled>
+                <product_quote_product_types>simple,configurable,bundle,grouped</product_quote_product_types>
 
                 <!-- DEBUG -->
                 <debug>0</debug>

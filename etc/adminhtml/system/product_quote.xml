@@ -16,11 +16,13 @@
             <label>Enabled</label>
             <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
             <comment>If enabled the product shipping quote will be possible from product page.</comment>
+            <config_path>carriers/magedin_frenet/product_quote_enabled</config_path>
         </field>
         <field id="product_types" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Enable for Product Types</label>
             <source_model>MagedIn\Frenet\Model\Config\Source\Catalog\Product\Quote\ProductTypes</source_model>
             <comment>These are the product types allowed to be quote in the product page.</comment>
+            <config_path>carriers/magedin_frenet/product_quote_product_types</config_path>
             <depends>
                 <field id="enabled">1</field>
             </depends>

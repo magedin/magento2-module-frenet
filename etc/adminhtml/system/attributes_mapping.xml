@@ -17,21 +17,25 @@
             <label>Weight Attribute</label>
             <source_model>MagedIn\Frenet\Model\Config\Source\Catalog\Product\Attributes</source_model>
             <comment>This attribute will be used to get shipping quotes from Frenet API.</comment>
+            <config_path>carriers/magedin_frenet/attributes_mapping_weight_attribute</config_path>
         </field>
         <field id="height_attribute" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
             <label>Height Attribute</label>
             <source_model>MagedIn\Frenet\Model\Config\Source\Catalog\Product\Attributes</source_model>
             <comment>This attribute will be used to get shipping quotes from Frenet API.</comment>
+            <config_path>carriers/magedin_frenet/attributes_mapping_height_attribute</config_path>
         </field>
         <field id="length_attribute" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
             <label>Length Attribute</label>
             <source_model>MagedIn\Frenet\Model\Config\Source\Catalog\Product\Attributes</source_model>
             <comment>This attribute will be used to get shipping quotes from Frenet API.</comment>
+            <config_path>carriers/magedin_frenet/attributes_mapping_length_attribute</config_path>
         </field>
         <field id="width_attribute" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
             <label>Width Attribute</label>
             <source_model>MagedIn\Frenet\Model\Config\Source\Catalog\Product\Attributes</source_model>
             <comment>This attribute will be used to get shipping quotes from Frenet API.</comment>
+            <config_path>carriers/magedin_frenet/attributes_mapping_width_attribute</config_path>
         </field>
     </group>
 </include>

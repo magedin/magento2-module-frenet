@@ -66,7 +66,7 @@ class Config
      */
     public function getWeightAttribute($store = null)
     {
-        return $this->getCarrierConfig('attributes_mapping/weight_attribute', $store);
+        return $this->getCarrierConfig('attributes_mapping_weight_attribute', $store);
     }
 
     /**
@@ -76,7 +76,7 @@ class Config
      */
     public function getHeightAttribute($store = null)
     {
-        return $this->getCarrierConfig('attributes_mapping/height_attribute', $store);
+        return $this->getCarrierConfig('attributes_mapping_height_attribute', $store);
     }
 
     /**
@@ -86,7 +86,7 @@ class Config
      */
     public function getLengthAttribute($store = null)
     {
-        return $this->getCarrierConfig('attributes_mapping/length_attribute', $store);
+        return $this->getCarrierConfig('attributes_mapping_length_attribute', $store);
     }
 
     /**
@@ -96,7 +96,7 @@ class Config
      */
     public function getWidthAttribute($store = null)
     {
-        return $this->getCarrierConfig('attributes_mapping/width_attribute', $store);
+        return $this->getCarrierConfig('attributes_mapping_width_attribute', $store);
     }
 
     /**
@@ -106,7 +106,7 @@ class Config
      */
     public function getDefaultWeight($store = null)
     {
-        return (float) $this->getCarrierConfig('default_measurements/default_weight', $store);
+        return (float) $this->getCarrierConfig('default_measurements_default_weight', $store);
     }
 
     /**
@@ -116,7 +116,7 @@ class Config
      */
     public function getDefaultHeight($store = null)
     {
-        return (float) $this->getCarrierConfig('default_measurements/default_height', $store);
+        return (float) $this->getCarrierConfig('default_measurements_default_height', $store);
     }
 
     /**
@@ -126,7 +126,7 @@ class Config
      */
     public function getDefaultLength($store = null)
     {
-        return (float) $this->getCarrierConfig('default_measurements/default_length', $store);
+        return (float) $this->getCarrierConfig('default_measurements_default_length', $store);
     }
 
     /**
@@ -136,7 +136,7 @@ class Config
      */
     public function getDefaultWidth($store = null)
     {
-        return (float) $this->getCarrierConfig('default_measurements/default_width', $store);
+        return (float) $this->getCarrierConfig('default_measurements_default_width', $store);
     }
 
     /**
@@ -206,7 +206,7 @@ class Config
      */
     public function isProductQuoteEnabled($store = null)
     {
-        return (bool) $this->getCarrierConfig('product_quote/enabled', $store);
+        return (bool) $this->getCarrierConfig('product_quote_enabled', $store);
     }
 
     /**
@@ -230,7 +230,7 @@ class Config
     {
         return explode(
             ',',
-            $this->getCarrierConfig('product_quote/product_types', $store)
+            $this->getCarrierConfig('product_quote_product_types', $store)
         );
     }
 
