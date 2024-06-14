@@ -27,3 +27,9 @@ Abra o terminal e navegue até o diretório raíz da sua instalação do Magento
 > php bin/magento setup:upgrade                  // Registra a extensão
 > php bin/magento setup:di:compile               // Recompila o projeto Magento
 ```
+
+<div style="text-align: center;">
+    <a href="https://github.com/magedin/magento2-module-frenet/">
+        <img src="https://github.com/magedin/magento2-module-frenet/blob/2.4-develop/.github/images/magedin_logo.svg?raw=true" width="200" alt="MagedIn Technology"/>
+    </a>
+</div>

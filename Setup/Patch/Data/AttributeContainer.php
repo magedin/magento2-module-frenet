@@ -103,7 +103,7 @@ class AttributeContainer implements DataPatchInterface
      */
     public function getAliases()
     {
-        return [ "frenetshipping-2.4.5.4" ];
+        return [];
     }
 
     /**

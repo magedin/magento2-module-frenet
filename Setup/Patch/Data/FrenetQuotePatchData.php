@@ -14,12 +14,8 @@ declare(strict_types = 1);
 
 namespace MagedIn\Frenet\Setup\Patch\Data;
 
-use MagedIn\Frenet\Model\Catalog\ProductType;
 use MagedIn\Frenet\Model\Cache\Type\Frenet;
 use Magento\Framework\Console\Cli;
-use Magento\Framework\Locale\Bundle\DataBundle;
-use Magento\Framework\Locale\ResolverInterface;
-use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Framework\Setup\Patch\PatchVersionInterface;
 
@@ -90,7 +86,7 @@ class FrenetQuotePatchData implements DataPatchInterface, PatchVersionInterface
      */
     public function getAliases()
     {
-        return [ "frenetshipping-2.4.6.1" ];
+        return [];
     }
 
     /**
