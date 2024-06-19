@@ -15,16 +15,21 @@ namespace MagedIn\Frenet\Model;
 
 use Magento\Framework\App\CacheInterface;
 use Magento\Framework\App\Config;
-use Magento\Framework\App\Filesystem\DirectoryList;
+use Magento\Framework\Component\ComponentRegistrar;
+use Magento\Framework\Component\ComponentRegistrarInterface;
 use Magento\Framework\Composer\ComposerInformation;
 use Magento\Framework\Serialize\SerializerInterface;
-use Symfony\Component\Finder\Finder;
 
 /**
  * Class ModuleMetadata
  */
 class ModuleMetadata
 {
+    /**
+     * @var string
+     */
+    const MODULE_NAME = 'MagedIn_Frenet';
+
     /**
      * @var string
      */
@@ -66,20 +71,26 @@ class ModuleMetadata
     private $serializer;
 
     /**
-     * @var DirectoryList
+     * @var ComponentRegistrarInterface
      */
-    private $directoryList;
+    private $componentRegistrar;
 
+    /**
+     * @param ComposerInformation $composerInformation
+     * @param CacheInterface $cache
+     * @param SerializerInterface $serializer
+     * @param ComponentRegistrarInterface $componentRegistrar
+     */
     public function __construct(
         ComposerInformation $composerInformation,
         CacheInterface $cache,
         SerializerInterface $serializer,
-        DirectoryList $directoryList
+        ComponentRegistrarInterface $componentRegistrar
     ) {
         $this->composerInformation = $composerInformation;
         $this->cache = $cache;
         $this->serializer = $serializer;
-        $this->directoryList = $directoryList;
+        $this->componentRegistrar = $componentRegistrar;
     }
 
     /**
@@ -103,15 +114,13 @@ class ModuleMetadata
      *
      * @return string
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         $this->version = $this->version ?: $this->cache->load(self::VERSION_CACHE_KEY);
-
         if (!$this->version) {
             $this->version = $this->getPackageVersion();
             $this->cache->save($this->version, self::VERSION_CACHE_KEY, [Config::CACHE_TAG]);
         }
-
         return $this->version;
     }
 
@@ -120,7 +129,7 @@ class ModuleMetadata
      *
      * @return string
      */
-    private function getPackageVersion()
+    private function getPackageVersion(): string
     {
         $package = $this->getPackage();
 
@@ -132,7 +141,7 @@ class ModuleMetadata
             return $this->getLocalVersion();
         }
 
-        return __('Unknown Module Version');
+        return (string) __('Unknown Module Version');
     }
 
     /**
@@ -152,14 +161,12 @@ class ModuleMetadata
     /**
      * @return void
      */
-    private function preparePackage()
+    private function preparePackage(): void
     {
         if ($this->package) {
             return;
         }
-
         $packages = $this->composerInformation->getInstalledMagentoPackages();
-
         if (isset($packages[self::PACKAGE_NAME])) {
             $this->package = $packages[self::PACKAGE_NAME];
         }
@@ -168,7 +175,7 @@ class ModuleMetadata
     /**
      * @return string|null
      */
-    private function getLocalVersion()
+    private function getLocalVersion(): ?string
     {
         if ($this->version) {
             return $this->version;
@@ -186,25 +193,14 @@ class ModuleMetadata
     /**
      * @return array
      */
-    private function getLocalComposerInfo()
+    private function getLocalComposerInfo(): array
     {
-        $mageAppDir = $this->directoryList->getPath(DirectoryList::APP);
-        $moduleDir = implode(DIRECTORY_SEPARATOR, [$mageAppDir, 'code', 'MagedIn', 'Frenet']);
-
-        $finder = new Finder();
-        $finder->files()->name('composer.json')->depth(0)->in($moduleDir);
-
-        if (!$finder->hasResults()) {
+        $moduleDir = $this->componentRegistrar->getPath(ComponentRegistrar::MODULE, self::MODULE_NAME);
+        $composerDir = $moduleDir . DIRECTORY_SEPARATOR . 'composer.json';
+        if (!file_exists($composerDir) || !is_readable($composerDir)) {
             return [];
         }
-
-        $content = [];
-
-        /** @var  $file */
-        foreach ($finder as $file) {
-            $content = $file->getContents();
-            break;
-        }
+        $content = file_get_contents($composerDir);
         return (array) $this->serializer->unserialize($content);
     }
 }
