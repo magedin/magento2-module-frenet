@@ -25,7 +25,7 @@ class RateRequestProviderTest extends TestCase
      */
     private $rateRequestProvider;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->rateRequestProvider = $this->getObject(RateRequestProvider::class);
     }
@@ -71,7 +71,9 @@ class RateRequestProviderTest extends TestCase
         $rateRequest = $this->createMock(RateRequest::class);
         $this->rateRequestProvider->setRateRequest($rateRequest);
         $this->rateRequestProvider->clear();
-        $this->expectExceptionObject($this->getObject(LocalizedException::class));
+        $this->expectExceptionObject($this->getObject(LocalizedException::class, [
+            'phrase' => __('Test')
+        ]));
         $this->expectExceptionMessage('Rate Request is not set.');
         $this->rateRequestProvider->getRateRequest();
     }

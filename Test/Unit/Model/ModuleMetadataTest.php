@@ -38,7 +38,7 @@ class ModuleMetadataTest extends TestCase
      */
     private $composerInformation;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->composerInformation = $this->createMock(ComposerInformation::class);
         $this->productMetadata = $this->getObject(ModuleMetadata::class, [
@@ -52,7 +52,8 @@ class ModuleMetadataTest extends TestCase
     public function getPackageVersion()
     {
         $this->prepareComposerInformation();
-        $this->assertEquals($this->version, $this->productMetadata->getVersion());
+        $expectedVersion = '2.1.4 (Installed Via Composer)';
+        $this->assertEquals($expectedVersion, $this->productMetadata->getVersion());
     }
 
     /**

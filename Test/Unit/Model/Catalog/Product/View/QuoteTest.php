@@ -89,7 +89,7 @@ class QuoteTest extends TestCase
      */
     private $service;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->product = $this->prepareProduct();
 
