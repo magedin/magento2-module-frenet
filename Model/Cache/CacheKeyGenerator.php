@@ -21,13 +21,17 @@ class CacheKeyGenerator implements CacheKeyGeneratorInterface
     /**
      * @var array
      */
-    private $generators;
+    private array $generators;
 
     /**
      * @var SerializerInterface
      */
-    private $serializer;
+    private SerializerInterface $serializer;
 
+    /**
+     * @param SerializerInterface $serializer
+     * @param array $generators
+     */
     public function __construct(
         SerializerInterface $serializer,
         array $generators = []
@@ -39,15 +43,13 @@ class CacheKeyGenerator implements CacheKeyGeneratorInterface
     /**
      * @return string
      */
-    public function generate()
+    public function generate(): string
     {
         $cacheKey = [];
-
         /** @var CacheKeyGeneratorInterface $generator */
         foreach ($this->generators as $generator) {
             $cacheKey[] = $generator->generate();
         }
-
         return $this->serializer->serialize($cacheKey);
     }
 }

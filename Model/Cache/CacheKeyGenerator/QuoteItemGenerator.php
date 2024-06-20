@@ -18,6 +18,7 @@ use MagedIn\Frenet\Model\Cache\CacheKeyGeneratorInterface;
 use MagedIn\Frenet\Model\Quote\ItemQuantityCalculatorInterface;
 use MagedIn\Frenet\Model\Quote\QuoteItemValidatorInterface;
 use MagedIn\Frenet\Service\RateRequestProvider;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Serialize\SerializerInterface;
 use Magento\Quote\Model\Quote\Item\AbstractItem as QuoteItem;
 
@@ -26,22 +27,22 @@ class QuoteItemGenerator implements CacheKeyGeneratorInterface
     /**
      * @var RateRequestProvider
      */
-    private $requestProvider;
+    private RateRequestProvider $requestProvider;
 
     /**
      * @var SerializerInterface
      */
-    private $serializer;
+    private SerializerInterface $serializer;
 
     /**
      * @var QuoteItemValidatorInterface
      */
-    private $quoteItemValidator;
+    private QuoteItemValidatorInterface $quoteItemValidator;
 
     /**
      * @var ItemQuantityCalculatorInterface
      */
-    private $itemQtyCalculator;
+    private ItemQuantityCalculatorInterface $itemQtyCalculator;
 
     public function __construct(
         SerializerInterface $serializer,
@@ -57,8 +58,9 @@ class QuoteItemGenerator implements CacheKeyGeneratorInterface
 
     /**
      * @inheritDoc
+     * @throws LocalizedException
      */
-    public function generate()
+    public function generate(): string
     {
         $items = [];
 

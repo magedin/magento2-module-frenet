@@ -10,16 +10,29 @@
  * @author    MagedIn Support <support@magedin.com>
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace MagedIn\Frenet\Model\Carrier;
 
 use Exception;
+use MagedIn\Frenet\Model\CalculatorInterface;
+use MagedIn\Frenet\Model\Config;
+use MagedIn\Frenet\Model\DeliveryTimeCalculator;
+use MagedIn\Frenet\Model\ServiceFinderInterface;
+use MagedIn\Frenet\Model\TrackingInterface;
+use MagedIn\Frenet\Model\Validator\PostcodeValidator;
+use MagedIn\Frenet\Service\RateRequestProvider;
+use Magento\Framework\DataObject;
+use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Phrase;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Quote\Model\Quote\Address\RateResult\Method as MethodInstance;
 use Magento\Shipping\Model\Carrier\AbstractCarrierOnline;
 use Magento\Shipping\Model\Carrier\CarrierInterface;
 use Frenet\ObjectType\Entity\Shipping\Quote\ServiceInterface as QuoteServiceInterface;
+use Magento\Shipping\Model\Tracking\Result;
+use Magento\Store\Api\Data\StoreInterface;
+use Magento\Store\Model\StoreManagerInterface;
 
 /**
  * Class Frenet
@@ -45,19 +58,14 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
     protected $_code = self::CARRIER_CODE;
 
     /**
-     * @var \Magento\Store\Model\StoreManagerInterface
+     * @var StoreManagerInterface
      */
-    protected $storeManagement;
-
-    /**
-     * @var \Magento\Catalog\Model\ResourceModel\ProductFactory
-     */
-    private $productResourceFactory;
+    protected StoreManagerInterface $storeManagement;
 
     /**
      * @var array
      */
-    private $errors = [];
+    private array $errors = [];
 
     /**
      * @var null
@@ -65,44 +73,39 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
     private $result;
 
     /**
-     * @var \MagedIn\Frenet\Model\CalculatorInterface
+     * @var CalculatorInterface
      */
-    private $calculator;
+    private CalculatorInterface $calculator;
 
     /**
-     * @var \MagedIn\Frenet\Model\DeliveryTimeCalculator
+     * @var DeliveryTimeCalculator
      */
-    private $deliveryTimeCalculator;
+    private DeliveryTimeCalculator $deliveryTimeCalculator;
 
     /**
-     * @var \MagedIn\Frenet\Model\TrackingInterface
+     * @var TrackingInterface
      */
-    private $trackingService;
+    private TrackingInterface $trackingService;
 
     /**
-     * @var \MagedIn\Frenet\Model\ServiceFinderInterface
+     * @var ServiceFinderInterface
      */
-    private $serviceFinder;
+    private ServiceFinderInterface $serviceFinder;
 
     /**
-     * @var \MagedIn\Frenet\Model\Formatters\PostcodeNormalizer
+     * @var Config
      */
-    private $postcodeNormalizer;
+    private Config $config;
 
     /**
-     * @var \MagedIn\Frenet\Model\Config
+     * @var PostcodeValidator
      */
-    private $config;
+    private PostcodeValidator $postcodeValidator;
 
     /**
-     * @var \MagedIn\Frenet\Model\Validator\PostcodeValidator
+     * @var RateRequestProvider
      */
-    private $postcodeValidator;
-
-    /**
-     * @var \MagedIn\Frenet\Service\RateRequestProvider
-     */
-    private $rateRequestProvider;
+    private RateRequestProvider $rateRequestProvider;
 
     /**
      * Frenet constructor.
@@ -124,16 +127,14 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
         \Magento\Directory\Model\CurrencyFactory $currencyFactory,
         \Magento\Directory\Helper\Data $directoryData,
         \Magento\CatalogInventory\Api\StockRegistryInterface $stockRegistry,
-        \Magento\Store\Model\StoreManagerInterface $storeManagement,
-        \Magento\Catalog\Model\ResourceModel\ProductFactory $productResourceFactory,
-        \MagedIn\Frenet\Model\CalculatorInterface $calculator,
-        \MagedIn\Frenet\Model\TrackingInterface $trackingService,
-        \MagedIn\Frenet\Model\ServiceFinderInterface $serviceFinder,
-        \MagedIn\Frenet\Model\Config $config,
-        \MagedIn\Frenet\Model\DeliveryTimeCalculator $deliveryTimeCalculator,
-        \MagedIn\Frenet\Model\Formatters\PostcodeNormalizer $postcodeNormalizer,
-        \MagedIn\Frenet\Model\Validator\PostcodeValidator $postcodeValidator,
-        \MagedIn\Frenet\Service\RateRequestProvider $rateRequestProvider,
+        StoreManagerInterface $storeManagement,
+        CalculatorInterface $calculator,
+        TrackingInterface $trackingService,
+        ServiceFinderInterface $serviceFinder,
+        Config $config,
+        DeliveryTimeCalculator $deliveryTimeCalculator,
+        PostcodeValidator $postcodeValidator,
+        RateRequestProvider $rateRequestProvider,
         array $data = []
     ) {
         parent::__construct(
@@ -156,13 +157,11 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
         );
 
         $this->storeManagement = $storeManagement;
-        $this->productResourceFactory = $productResourceFactory;
         $this->trackingService = $trackingService;
         $this->calculator = $calculator;
         $this->serviceFinder = $serviceFinder;
         $this->config = $config;
         $this->deliveryTimeCalculator = $deliveryTimeCalculator;
-        $this->postcodeNormalizer = $postcodeNormalizer;
         $this->postcodeValidator = $postcodeValidator;
         $this->rateRequestProvider = $rateRequestProvider;
     }
@@ -172,7 +171,7 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
      *
      * @param RateRequest $request
      *
-     * @return \Magento\Framework\DataObject|bool|null
+     * @return DataObject|bool|null
      * @api
      */
     public function collectRates(RateRequest $request)
@@ -204,7 +203,7 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
         } catch (Exception $e) {
             $errorMessage = $e->getMessage();
             $errorStack = $e->getTraceAsString();
-            $this->_logger->critical("Error Frenet canCollectRates: " . $errorMessage." > ". $errorStack);
+            $this->_logger->critical("Error Frenet canCollectRates: " . $errorMessage . " > " . $errorStack);
         }
 
         return null;
@@ -215,37 +214,33 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
      *
      * @return bool
      */
-    public function canCollectRates()
+    public function canCollectRates(): bool
     {
         /** Validate carrier active flag */
         if (!$this->config->isActive()) {
             return false;
         }
-
         /** @var int $store */
         $store = $this->getStore();
-
         /** Validate origin postcode */
         if (!$this->config->getOriginPostcode($store)) {
             return false;
         }
-
         /** Validate frenet token */
         if (!$this->config->getToken()) {
             return false;
         }
-
         return true;
     }
 
     /**
      * Make this module compatible with older versions of Magento 2.
      *
-     * @param \Magento\Framework\DataObject $request
+     * @param DataObject $request
      *
-     * @return $this|bool|\Magento\Framework\DataObject
+     * @return $this|bool|DataObject
      */
-    public function proccessAdditionalValidation(\Magento\Framework\DataObject $request)
+    public function proccessAdditionalValidation(DataObject $request)
     {
         return $this->processAdditionalValidation($request);
     }
@@ -255,33 +250,28 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
      *
      * @param \Magento\Quote\Model\Quote\Address\RateRequest $request
      *
-     * @return $this|bool|\Magento\Framework\DataObject
+     * @return $this|bool|DataObject
      */
-    public function processAdditionalValidation(\Magento\Framework\DataObject $request)
+    public function processAdditionalValidation(DataObject $request)
     {
         /** Validate destination postcode */
         if (!$this->postcodeValidator->validate($request->getDestPostcode())) {
             $this->errors[] = __('Please inform a valid postcode');
         }
-
         /** Validate request items data */
         if (empty($request->getAllItems())) {
             $this->errors[] = __('There is no items in this order');
         }
-
         if (!empty($this->errors)) {
             /** @var \Magento\Quote\Model\Quote\Address\RateResult\Error $error */
             $error = $this->_rateErrorFactory->create([
-                'carrier'       => $this->_code,
+                'carrier' => $this->_code,
                 'carrier_title' => $this->config->getCarrierConfig('title'),
-                'error_message' => implode(', ', $this->errors)
+                'error_message' => implode(', ', $this->errors),
             ]);
-
             $this->debugErrors($error);
-
             return $error;
         }
-
         return $this;
     }
 
@@ -291,7 +281,7 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
      * @return array
      * @api
      */
-    public function getAllowedMethods()
+    public function getAllowedMethods(): array
     {
         return [self::CARRIER_CODE => $this->config->getCarrierConfig('name')];
     }
@@ -299,27 +289,26 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
     /**
      * @param $trackingNumbers
      *
-     * @return \Magento\Shipping\Model\Tracking\Result
+     * @return Result
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    public function getTracking($trackingNumbers)
+    public function getTracking($trackingNumbers): Result
     {
         if (!is_array($trackingNumbers)) {
             $trackingNumbers = [$trackingNumbers];
         }
-
         return $this->prepareTracking($trackingNumbers);
     }
 
     /**
      * @param array $trackingNumbers
      *
-     * @return \Magento\Shipping\Model\Tracking\Result
+     * @return Result
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    private function prepareTracking(array $trackingNumbers)
+    private function prepareTracking(array $trackingNumbers): Result
     {
-        /** @var \Magento\Shipping\Model\Tracking\Result $result */
+        /** @var Result $result */
         $result = $this->_trackFactory->create();
 
         /**
@@ -340,23 +329,21 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
             $status->setTrackSummary($this->prepareTrackingInformation($status, $trackingNumber, $serviceCode));
             $result->append($status);
         }
-
         $this->result = $result;
-
         return $result;
     }
 
     /**
      * @param \Magento\Shipping\Model\Tracking\Result\Status $status
-     * @param string                                         $trackingNumber
-     * @param string                                         $shippingServiceCode
+     * @param string $trackingNumber
+     * @param string $shippingServiceCode
      *
      * @return void
      */
     private function prepareTrackingInformation(
         \Magento\Shipping\Model\Tracking\Result\Status $status,
-        $trackingNumber,
-        $shippingServiceCode
+        string $trackingNumber,
+        string $shippingServiceCode
     ) {
         /** @var \Frenet\ObjectType\Entity\Tracking\TrackingInfoInterface $trackingInfo */
         $trackingInfo = $this->trackingService->track($trackingNumber, $shippingServiceCode);
@@ -380,18 +367,18 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
      * @inheritdoc
      * @SuppressWarnings(PHPMD.CamelCaseMethodName)
      */
-    protected function _doShipmentRequest(\Magento\Framework\DataObject $request)
+    protected function _doShipmentRequest(DataObject $request)
     {
         return $this;
     }
 
     /**
-     * @param RateRequest             $request
+     * @param RateRequest $request
      * @param QuoteServiceInterface[] $items
      *
-     * @return $this
+     * @return void
      */
-    private function prepareResult(array $services = []) : self
+    private function prepareResult(array $services = []): void
     {
         /** @var \Magento\Shipping\Model\Rate\Result $result */
         $this->result = $this->_rateFactory->create();
@@ -401,26 +388,22 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
             if ($service->isError()) {
                 continue;
             }
-
             $deliveryTime = $this->deliveryTimeCalculator->calculate($service);
             $serviceDescription = $service->getServiceDescription();
             if (is_array($serviceDescription)) {
-                $serviceDescription = implode(" ", $service->getServiceDescription());
+                $serviceDescription = implode(' ', $service->getServiceDescription());
             }
-            $serviceMessage = "".$service->getMessage();
-
+            $serviceMessage = $service->getMessage();
             $title = $this->appendInformation(
                 $serviceDescription,
                 $deliveryTime,
                 $serviceMessage
             );
-
             $description = $this->prepareMethodDescription(
                 $service->getCarrier(),
                 $serviceDescription,
                 $deliveryTime
             );
-
             $method = $this->prepareMethod(
                 $service->getServiceCode(),
                 $title,
@@ -428,21 +411,18 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
                 (float) $service->getShippingPrice(),
                 (float) $service->getShippingPrice()
             );
-
             $this->result->append($method);
         }
-
-        return $this;
     }
 
     /**
-     * @return \Magento\Store\Api\Data\StoreInterface
+     * @return StoreInterface
      */
-    private function getStore()
+    private function getStore(): ?StoreInterface
     {
         try {
             return $this->storeManagement->getStore();
-        } catch (\Magento\Framework\Exception\NoSuchEntityException $e) {
+        } catch (NoSuchEntityException $e) {
             return null;
         }
     }
@@ -451,8 +431,8 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
      * @param string $code
      * @param string $title
      * @param string $description
-     * @param float  $price
-     * @param float  $cost
+     * @param float $price
+     * @param float $cost
      *
      * @return MethodInstance
      */
@@ -462,7 +442,7 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
         string $description,
         float $price,
         float $cost
-    ) : MethodInstance {
+    ): MethodInstance {
         /** @var MethodInstance $methodInstance */
         $methodInstance = $this->_rateMethodFactory->create();
         $methodInstance->setCarrier($this->_code)
@@ -479,31 +459,28 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
     /**
      * @param string $carrier
      * @param string $description
-     * @param int    $deliveryTime
+     * @param int $deliveryTime
      *
-     * @return \Magento\Framework\Phrase|string
+     * @return Phrase|string
      */
-    private function prepareMethodDescription(string $carrier, string $description, $deliveryTime = 0)
+    private function prepareMethodDescription(string $carrier, string $description, int $deliveryTime = 0): string
     {
-        $title = __('%1' . self::STR_SEPARATOR . '%2', $carrier, $description);
-        $title = $this->appendInformation($title, $deliveryTime);
-
-        return $title;
+        $title = (string) __('%1' . self::STR_SEPARATOR . '%2', $carrier, $description);
+        return $this->appendInformation($title, $deliveryTime);
     }
 
     /**
      * @param string $text
-     * @param int    $deliveryTime
-     * @param string $message
+     * @param int $deliveryTime
+     * @param string|null $message
      *
      * @return string
      */
-    private function appendInformation($text, $deliveryTime = 0, $message = null)
+    private function appendInformation(string $text, int $deliveryTime = 0, string $message = null): string
     {
         if ($this->config->canShowShippingForecast()) {
             $text .= self::STR_SEPARATOR . $this->getDeliveryTimeMessage($deliveryTime);
         }
-
         /**
          * In some cases the API returns some messages about restrictions or extended delivery time.
          * This is where this information will be displayed.
@@ -511,7 +488,6 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
         if ($message) {
             $text .= " ({$message})";
         }
-
         return $text;
     }
 
@@ -520,13 +496,12 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
      *
      * @return mixed
      */
-    private function getDeliveryTimeMessage($deliveryTime = 0)
+    private function getDeliveryTimeMessage(int $deliveryTime = 0): string
     {
         // dias {{d}} ao inves de {{d}} aaadd
         $pattern = '/\{\{d\}\}/i';
-        $replacement = "".$deliveryTime;
+        $replacement = "" . $deliveryTime;
         $subject = $this->config->getShippingForecastMessage();
-        $result = preg_replace($pattern, $replacement, $subject);
-        return $result;
+        return (string) preg_replace($pattern, $replacement, $subject);
     }
 }

@@ -22,8 +22,11 @@ class CouponGenerator implements CacheKeyGeneratorInterface
     /**
      * @var CouponProcessor
      */
-    private $couponProcessor;
+    private CouponProcessor $couponProcessor;
 
+    /**
+     * @param CouponProcessor $couponProcessor
+     */
     public function __construct(
         CouponProcessor $couponProcessor
     ) {
@@ -33,7 +36,7 @@ class CouponGenerator implements CacheKeyGeneratorInterface
     /**
      * @inheritDoc
      */
-    public function generate()
+    public function generate(): string
     {
         return $this->couponProcessor->getCouponCode() ?: 'no-coupon';
     }

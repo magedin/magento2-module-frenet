@@ -18,37 +18,35 @@ use MagedIn\Frenet\Model\Config;
 use MagedIn\Frenet\Model\Cache\CacheKeyGeneratorInterface;
 use MagedIn\Frenet\Model\Formatters\PostcodeNormalizer;
 use MagedIn\Frenet\Service\RateRequestProvider;
-use Magento\Framework\Serialize\SerializerInterface;
+use Magento\Framework\Exception\LocalizedException;
 
 class PostcodeGenerator implements CacheKeyGeneratorInterface
 {
     /**
      * @var RateRequestProvider
      */
-    private $requestProvider;
+    private RateRequestProvider $requestProvider;
 
     /**
      * @var Config
      */
-    private $config;
-
-    /**
-     * @var SerializerInterface
-     */
-    private $serializer;
+    private Config $config;
 
     /**
      * @var PostcodeNormalizer
      */
-    private $postcodeNormalizer;
+    private PostcodeNormalizer $postcodeNormalizer;
 
+    /**
+     * @param PostcodeNormalizer $postcodeNormalizer
+     * @param RateRequestProvider $requestProvider
+     * @param Config $config
+     */
     public function __construct(
         PostcodeNormalizer $postcodeNormalizer,
-        SerializerInterface $serializer,
         RateRequestProvider $requestProvider,
         Config $config
     ) {
-        $this->serializer = $serializer;
         $this->requestProvider = $requestProvider;
         $this->config = $config;
         $this->postcodeNormalizer = $postcodeNormalizer;
@@ -56,8 +54,9 @@ class PostcodeGenerator implements CacheKeyGeneratorInterface
 
     /**
      * @inheritDoc
+     * @throws LocalizedException
      */
-    public function generate()
+    public function generate(): string
     {
         $destPostcode = $this->requestProvider->getRateRequest()->getDestPostcode();
         $origPostcode = $this->config->getOriginPostcode();

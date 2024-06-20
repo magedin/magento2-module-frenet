@@ -22,8 +22,11 @@ class MultiQuoteGenerator implements CacheKeyGeneratorInterface
     /**
      * @var Config
      */
-    private $config;
+    private Config $config;
 
+    /**
+     * @param Config $config
+     */
     public function __construct(
         Config $config
     ) {
@@ -33,7 +36,7 @@ class MultiQuoteGenerator implements CacheKeyGeneratorInterface
     /**
      * @inheritDoc
      */
-    public function generate()
+    public function generate(): string
     {
         return $this->config->isMultiQuoteEnabled() ? 'multi' : 'single';
     }

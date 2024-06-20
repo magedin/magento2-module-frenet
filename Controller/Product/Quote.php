@@ -28,7 +28,7 @@ class Quote extends Action implements HttpPostActionInterface
     /**
      * @var QuoteProductInterface
      */
-    private $quoteProduct;
+    private QuoteProductInterface $quoteProduct;
 
     /**
      * @param Context $context

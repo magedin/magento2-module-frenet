@@ -14,6 +14,8 @@ declare(strict_types = 1);
 
 namespace MagedIn\Frenet\Model\Cache\Type;
 
+use Magento\Framework\App\Cache\Manager;
+use Magento\Framework\App\Cache\Type\FrontendPool;
 use Magento\Framework\Cache\Frontend\Decorator\TagScope;
 use Magento\Framework\Config\CacheInterface;
 
@@ -33,22 +35,21 @@ class Frenet extends TagScope implements CacheInterface
     const CACHE_TAG = 'FRENET_API_RESULT';
 
     /**
-     * @var \Magento\Framework\App\Cache\Manager
+     * @var Manager
      */
-    protected $cacheManager;
+    protected Manager $cacheManager;
 
     /**
      * Frenet constructor.
      *
-     * @param \Magento\Framework\App\Cache\Manager           $cacheManager
-     * @param \Magento\Framework\App\Cache\Type\FrontendPool $cacheFrontendPool
+     * @param Manager           $cacheManager
+     * @param FrontendPool $cacheFrontendPool
      */
     public function __construct(
-        \Magento\Framework\App\Cache\Manager $cacheManager,
-        \Magento\Framework\App\Cache\Type\FrontendPool $cacheFrontendPool
+        Manager $cacheManager,
+        FrontendPool $cacheFrontendPool
     ) {
         parent::__construct($cacheFrontendPool->get(self::TYPE_IDENTIFIER), self::CACHE_TAG);
-
         $this->cacheManager = $cacheManager;
     }
 
@@ -68,10 +69,9 @@ class Frenet extends TagScope implements CacheInterface
      * @return $this
      * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
      */
-    public function setEnabled($flag = true)
+    public function setEnabled(bool $flag = true): self
     {
         $this->cacheManager->setEnabled([self::TYPE_IDENTIFIER], (bool) $flag);
-
         return $this;
     }
 }

@@ -126,7 +126,7 @@ class ModuleMetadata
      */
     public function getVersion(): string
     {
-        $this->version = $this->version ?: $this->cache->load(self::VERSION_CACHE_KEY);
+        $this->version = $this->version ?: (string) $this->cache->load(self::VERSION_CACHE_KEY);
         if (!$this->version) {
             $this->version = $this->getPackageVersion();
             $this->cache->save($this->version, self::VERSION_CACHE_KEY, [Config::CACHE_TAG]);
