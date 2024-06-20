@@ -1,4 +1,4 @@
-name: Magento 2 Coding Standard
+name: Magento 2 PHP Compatibility Check
 
 # Run this workflow every time a new commit pushed to your repository or pull requested is created.
 on: [push, pull_request]
