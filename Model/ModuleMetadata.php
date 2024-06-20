@@ -19,7 +19,7 @@ use Magento\Framework\Component\ComponentRegistrar;
 use Magento\Framework\Component\ComponentRegistrarInterface;
 use Magento\Framework\Composer\ComposerInformation;
 use Magento\Framework\Exception\FileSystemException;
-use Magento\Framework\Filesystem\DriverInterface;
+use Magento\Framework\Filesystem\Driver\File;
 use Magento\Framework\Serialize\SerializerInterface;
 
 /**
@@ -78,7 +78,7 @@ class ModuleMetadata
     private $componentRegistrar;
 
     /**
-     * @var DriverInterface
+     * @var File
      */
     private $driver;
 
@@ -87,14 +87,14 @@ class ModuleMetadata
      * @param CacheInterface $cache
      * @param SerializerInterface $serializer
      * @param ComponentRegistrarInterface $componentRegistrar
-     * @param DriverInterface $driver
+     * @param File $driver
      */
     public function __construct(
         ComposerInformation $composerInformation,
         CacheInterface $cache,
         SerializerInterface $serializer,
         ComponentRegistrarInterface $componentRegistrar,
-        DriverInterface $driver
+        File $driver
     ) {
         $this->composerInformation = $composerInformation;
         $this->cache = $cache;
