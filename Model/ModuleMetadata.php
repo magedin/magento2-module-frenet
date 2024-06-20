@@ -18,6 +18,8 @@ use Magento\Framework\App\Config;
 use Magento\Framework\Component\ComponentRegistrar;
 use Magento\Framework\Component\ComponentRegistrarInterface;
 use Magento\Framework\Composer\ComposerInformation;
+use Magento\Framework\Exception\FileSystemException;
+use Magento\Framework\Filesystem\DriverInterface;
 use Magento\Framework\Serialize\SerializerInterface;
 
 /**
@@ -76,21 +78,29 @@ class ModuleMetadata
     private $componentRegistrar;
 
     /**
+     * @var DriverInterface
+     */
+    private $driver;
+
+    /**
      * @param ComposerInformation $composerInformation
      * @param CacheInterface $cache
      * @param SerializerInterface $serializer
      * @param ComponentRegistrarInterface $componentRegistrar
+     * @param DriverInterface $driver
      */
     public function __construct(
         ComposerInformation $composerInformation,
         CacheInterface $cache,
         SerializerInterface $serializer,
-        ComponentRegistrarInterface $componentRegistrar
+        ComponentRegistrarInterface $componentRegistrar,
+        DriverInterface $driver
     ) {
         $this->composerInformation = $composerInformation;
         $this->cache = $cache;
         $this->serializer = $serializer;
         $this->componentRegistrar = $componentRegistrar;
+        $this->driver = $driver;
     }
 
     /**
@@ -197,10 +207,14 @@ class ModuleMetadata
     {
         $moduleDir = $this->componentRegistrar->getPath(ComponentRegistrar::MODULE, self::MODULE_NAME);
         $composerDir = $moduleDir . DIRECTORY_SEPARATOR . 'composer.json';
-        if (!file_exists($composerDir) || !is_readable($composerDir)) {
+        try {
+            if (!$this->driver->isFile($composerDir) || !$this->driver->isReadable($composerDir)) {
+                return [];
+            }
+            $content = $this->driver->fileGetContents($composerDir);
+        } catch (FileSystemException $e) {
             return [];
         }
-        $content = file_get_contents($composerDir);
         return (array) $this->serializer->unserialize($content);
     }
 }
