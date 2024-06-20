@@ -50,37 +50,37 @@ class ModuleMetadata
     /**
      * @var ComposerInformation
      */
-    private $composerInformation;
+    private ComposerInformation $composerInformation;
 
     /**
      * @var string
      */
-    private $version = null;
+    private ?string $version = null;
 
     /**
      * @var array
      */
-    private $package = [];
+    private array $package = [];
 
     /**
      * @var CacheInterface
      */
-    private $cache;
+    private CacheInterface $cache;
 
     /**
      * @var SerializerInterface
      */
-    private $serializer;
+    private SerializerInterface $serializer;
 
     /**
      * @var ComponentRegistrarInterface
      */
-    private $componentRegistrar;
+    private ComponentRegistrarInterface $componentRegistrar;
 
     /**
      * @var File
      */
-    private $driver;
+    private File $driver;
 
     /**
      * @param ComposerInformation $composerInformation

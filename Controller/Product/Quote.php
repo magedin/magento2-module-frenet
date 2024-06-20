@@ -12,6 +12,7 @@
 
 namespace MagedIn\Frenet\Controller\Product;
 
+use MagedIn\Frenet\Api\QuoteProductInterface;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\Action\HttpPostActionInterface;
@@ -25,13 +26,17 @@ use Magento\Framework\Controller\ResultFactory;
 class Quote extends Action implements HttpPostActionInterface
 {
     /**
-     * @var \MagedIn\Frenet\Api\QuoteProductInterface
+     * @var QuoteProductInterface
      */
     private $quoteProduct;
 
+    /**
+     * @param Context $context
+     * @param QuoteProductInterface $quoteProduct
+     */
     public function __construct(
         Context $context,
-        \MagedIn\Frenet\Api\QuoteProductInterface $quoteProduct
+        QuoteProductInterface $quoteProduct
     ) {
         parent::__construct($context);
         $this->quoteProduct = $quoteProduct;
@@ -54,12 +59,12 @@ class Quote extends Action implements HttpPostActionInterface
 
             $page->setData([
                 'error' => false,
-                'rates' => $rates
+                'rates' => $rates,
             ]);
         } catch (\Exception $exception) {
             $page->setData([
-                'error'   => true,
-                'message' => $exception->getMessage()
+                'error' => true,
+                'message' => $exception->getMessage(),
             ]);
         }
 

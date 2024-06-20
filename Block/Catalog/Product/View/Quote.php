@@ -37,10 +37,10 @@ class Quote extends View
     /**
      * @return array
      */
-    public function getValidators()
+    public function getValidators(): array
     {
         return [
-            'required-number' => true
+            'required-number' => true,
         ];
     }
 
@@ -58,7 +58,7 @@ class Quote extends View
      * @return string
      * @SuppressWarnings(PHPMD.CamelCaseMethodName)
      */
-    protected function _toHtml() : string
+    protected function _toHtml(): string
     {
         if (!$this->getViewModel()->isProductQuoteAllowed()) {
             return '';

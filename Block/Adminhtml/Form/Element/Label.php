@@ -9,9 +9,14 @@
  *
  * @author    MagedIn Support <support@magedin.com>
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
-namespace MagedIn\Frenet\Block\Form\Element;
+namespace MagedIn\Frenet\Block\Adminhtml\Form\Element;
+
+use MagedIn\Frenet\Model\ModuleMetadata;
+use Magento\Framework\Data\Form\Element\CollectionFactory;
+use Magento\Framework\Data\Form\Element\Factory;
+use Magento\Framework\Escaper;
 
 /**
  * Class Label
@@ -20,15 +25,22 @@ namespace MagedIn\Frenet\Block\Form\Element;
 class Label extends \Magento\Framework\Data\Form\Element\Label
 {
     /**
-     * @var \MagedIn\Frenet\Model\ModuleMetadata
+     * @var ModuleMetadata
      */
-    private $moduleMetadata;
+    private ModuleMetadata $moduleMetadata;
 
+    /**
+     * @param Factory $factoryElement
+     * @param CollectionFactory $factoryCollection
+     * @param Escaper $escaper
+     * @param ModuleMetadata $moduleMetadata
+     * @param $data
+     */
     public function __construct(
-        \Magento\Framework\Data\Form\Element\Factory $factoryElement,
-        \Magento\Framework\Data\Form\Element\CollectionFactory $factoryCollection,
-        \Magento\Framework\Escaper $escaper,
-        \MagedIn\Frenet\Model\ModuleMetadata $moduleMetadata,
+        Factory $factoryElement,
+        CollectionFactory $factoryCollection,
+        Escaper $escaper,
+        ModuleMetadata $moduleMetadata,
         $data = []
     ) {
         parent::__construct($factoryElement, $factoryCollection, $escaper, $data);
@@ -40,7 +52,7 @@ class Label extends \Magento\Framework\Data\Form\Element\Label
      *
      * @return string
      */
-    public function getValue() : string
+    public function getValue(): string
     {
         return (string) $this->moduleMetadata->getVersion() ?: $this->getData('version');
     }
