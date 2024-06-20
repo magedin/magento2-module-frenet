@@ -18,4 +18,4 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
       - name: Running Magento 2 PHP Compatibility Check
-        uses: extdn/github-actions-m2/php-compatibility/7.4@master
+        uses: extdn/github-actions-m2/php-compatibility@master
