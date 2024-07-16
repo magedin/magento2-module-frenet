@@ -33,6 +33,6 @@ Abra o terminal e navegue até o diretório raíz da sua instalação do Magento
 
 <div style="text-align: center;">
     <a href="https://github.com/magedin/magento2-module-frenet/">
-        <img src="https://github.com/magedin/magento2-module-frenet/blob/master/.github/images/magedin_logo.svg?raw=true" width="200" alt="MagedIn Technology"/>
+        <img src="https://raw.githubusercontent.com/magedin/assets/c0cd4f15cee6580c6c96848400cf089e91417529/images/logo/magedin_horizontal.svg?raw=true" width="200" alt="MagedIn Technology" title="MagedIn Technology"/>
     </a>
 </div>
