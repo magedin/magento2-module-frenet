@@ -476,7 +476,7 @@ class Frenet extends AbstractCarrierOnline implements CarrierInterface
      *
      * @return string
      */
-    private function appendInformation(string $text, int $deliveryTime = 0, string $message = null): string
+    private function appendInformation(string $text, int $deliveryTime = 0, ?string $message = null): string
     {
         if ($this->config->canShowShippingForecast()) {
             $text .= self::STR_SEPARATOR . $this->getDeliveryTimeMessage($deliveryTime);

@@ -35,7 +35,7 @@ class PostcodeValidator
      *
      * @return bool
      */
-    public function validate(string $postcode = null): bool
+    public function validate(?string $postcode = null): bool
     {
         if (empty($postcode)) {
             return false;
